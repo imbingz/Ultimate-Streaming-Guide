@@ -1,6 +1,8 @@
 # Ultimate-Streaming-Guide
 
 ## Table of Content
+
+  - [Table of Content](#table-of-content)
     - [1. Links](#1-links)
     - [2. Project Context - User Story](#2-project-context---user-story)
     - [3. Project Objectives](#3-project-objectives)
