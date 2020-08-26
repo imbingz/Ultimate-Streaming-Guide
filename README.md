@@ -5,19 +5,15 @@
 - [Ultimate-Streaming-Guide](#ultimate-streaming-guide)
     - [Table of Content](#table-of-content)
     - [1. Links](#1-links)
-      - [Website Link](#website-link)
-      - [Work-Files Link](#work-files-link)
     - [2. Project Context - User Story](#2-project-context---user-story)
     - [3. Project Objectives](#3-project-objectives)
     - [4. Outcome](#4-outcome)
     - [5. Screenshots](#5-screenshots)
-      - [Screenshots - Mobile View](#screenshots---mobile-view)
-      - [Screenshots - Laptop view](#screenshots---laptop-view)
     - [6. Installation](#6-installation)
     - [7. Credits:](#7-credits)
     - [8. What We've Learned](#8-what-weve-learned)
     - [9. License](#9-license)
-        - [MIT License](#mit-license)
+
 #
 <a name = "Links"></a>
 ### 1. Links 
@@ -78,7 +74,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 
 <a name="learned"></a>
-### 8. What We've Learned
+### 8. Challenges & What We've Learned
 
 
 
