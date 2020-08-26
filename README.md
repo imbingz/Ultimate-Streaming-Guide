@@ -65,12 +65,12 @@ SO THAT I can save time and quickly find what I want.<br>
 <a name="Installation"></a>
 ### 6. Installation
 * Access to GitHub.com and a code editor such as vscode is necessary
-* Go to [github.com/imbingz/imbingz.github.io.](https://github.com/imbingz/Responsive-Website-Portfolio)
+* Go to [github.com/imbingz/imbingz.github.io.](https://github.com/imbingz/Ultimate-Streaming-Guide)
 * Click on the green button that says Clone or Download
 * Choose how you would like to download: using the SSH/HTTPS keys or download the zip file
 * Using SSH/HTTPS Key: You will copy the link shown and open up either terminal (mac: pre-installed) or gitbash (pc: must be installed). Once the application is open, you will type git clone paste url here. Once you have cloned the git repo, cd into the repo and type open. to open the folder which contains all files used for the website. Once inside the folder, click on index.html to open the website in the browser.
 * Using Download ZIP: Click on Download Zip. Locate the file and double click it to unzip the file. Locate the unzipped folder and open it. All the files for the website will be within this folder. Click on index.html to open the website in the browser.
-* If you like to test this Password Generator App, please click the link [here](https://imbingz.github.io/Password-Generator/)
+* If you like to test this App, please click the link [here](https://imbingz.github.io/Ultimate-Streaming-Guide/)
 
 
 <a name="Credits"></a>
