@@ -1,7 +1,7 @@
 # Ultimate-Streaming-Guide
 
-
-### Table of Content
+<hr>
+## Table of Content
 - [Ultimate-Streaming-Guide](#ultimate-streaming-guide)
     - [Table of Content](#table-of-content)
     - [1. Links](#1-links)
