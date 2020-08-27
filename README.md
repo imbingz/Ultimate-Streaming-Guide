@@ -1,19 +1,21 @@
 # Ultimate-Streaming-Guide
 
-  - [Table of Content](#table-of-content)
-    - [1. Links](#1-links)
-    - [2. Project Context - User Story](#2-project-context---user-story)
-    - [3. Project Objectives](#3-project-objectives)
-    - [4. Outcome](#4-outcome)
-    - [5. Screenshots](#5-screenshots)
-    - [6. Installation](#6-installation)
-    - [7. Credits:](#7-credits)
-    - [8. What We've Learned](#8-what-weve-learned)
-    - [9. License](#9-license)
+  
+## Table of Content
+1. [ Project Links ](#Links)
+2. [ Project Context ](#context)
+3. [ Project Objectives ](#objectives)
+4. [ Outcome ](#Outcome)
+5. [ Screenshots ](#Screenshots)
+6. [Challenges & What We've Learned](#learned)
+7. [Installation](#Installation)
+8. [Credits](#Credits)
+9. [ License ](#License)
+#
 
 #
 <a name = "Links"></a>
-### 1. Links 
+### 1. Project Links 
 
 #### Website Link
 https://imbingz.github.io/Ultimate-Streaming-Guide/
@@ -76,6 +78,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="learned"></a>
 ### 8. Challenges & What We've Learned
+* 
 
 
 
