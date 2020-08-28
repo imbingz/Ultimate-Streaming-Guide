@@ -71,10 +71,7 @@ SO THAT I can save time and quickly find what I want.<br>
 <a name="Credits"></a>
 ### 7. Credits:
 * [Omdb API](http://www.omdbapi.com/)
-
-
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
-
 * [Skeleton CSS](http://getskeleton.com/)
 
 
