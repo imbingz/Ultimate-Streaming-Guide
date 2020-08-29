@@ -73,6 +73,13 @@ SO THAT I can save time and quickly find what I want.<br>
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
 * [Skeleton CSS](http://getskeleton.com/)
+* [Mozilla HTML5 Guide](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)<br>
+* [w3 School CSS3](https://www.w3schools.com/css/css_intro.asp)<br>
+* [Mozilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)<br>
+* [JQuey API](https://api.jquery.com/)<br>
+* [Visual Studio Code](https://code.visualstudio.com/)<br>
+
+
 
 
 <a name="learned"></a>
