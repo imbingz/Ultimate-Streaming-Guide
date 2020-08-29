@@ -1,3 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #363333;
+  color: #f6e9e9;
+}
+button {
+  background-color: #e16428;
+}
+
+#header {
+  background-color: #272121;
+  color: #f6e9e9;
+  text-align: center;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

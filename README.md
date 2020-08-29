@@ -78,6 +78,7 @@ SO THAT I can save time and quickly find what I want.<br>
 * [Mozilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)<br>
 * [JQuey API](https://api.jquery.com/)<br>
 * [Visual Studio Code](https://code.visualstudio.com/)<br>
+*[Favicon Used](https://freepngimg.com/png/18709-television-free-download-png/icon)<br>
 
 
 
