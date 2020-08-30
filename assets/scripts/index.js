@@ -72,8 +72,8 @@ function omdbQuery( ) {
 			console.log('for loop is running ');
 			//Set HTML structure and assign to a variable 
 			moviesOutput += `
-			<div class="one-fourth column">
-				<div class="card">
+			<div class="three columns movie-item">
+				<div class="movie-card">
 					<img class="movie-poster" src="${movie.Poster}" alt="movie cover image">
 					<div class="movie-details">
 						<a href="#" id="selected-movie" class="button select-btn" data-id="${movie.imdbID}">Movie Details</a>
