@@ -21,7 +21,8 @@ function omdbAPI(movie) {
 }
 
 // On click listener for the button to collect the data from omdb and console.log
-$('#aBtn').click(function() {
+$('#aBtn').click(function(event) {
+	event.preventDefault();
 	let omdbEndPoint = omdbAPI(userInput.val().trim());
 	$.ajax(omdbEndPoint).then(function(response) {
 		console.log(response);
