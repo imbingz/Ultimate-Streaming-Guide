@@ -6,7 +6,8 @@
   <!-- FOR BEST MOBILE UX  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CONTENT DESCRIPTION SEO  -->
-  <meta name="description" content="Your ultimate one-stop movie and TV shows streaming guide. Browse, search and play from over 50 popular streaming sources. ">
+  <meta name="description"
+    content="Your ultimate one-stop movie and TV shows streaming guide. Browse, search and play from over 50 popular streaming sources. ">
   <!-- Linking Skeleton CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
     integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
@@ -20,23 +21,23 @@
 </head>
 
 <body>
-  
+
   <!-- HEADER  -->
   <header>
     <div class="row">
       <h1 id="header">Ultimate Streaming Guide</h1>
-    </div>   
+    </div>
   </header>
 
-   <!-- MAIN  -->
+  <!-- MAIN  -->
   <main>
-    
-     
-    
+
+
+
     <div class="container">
 
       <!-- USER INPUT SEARCH BOX  -->
-      <div class="row">
+      <div id="user-input-container">
         <form>
           <input id="user-input" placeholder="TYPE YOUR MOVIE HERE">
           <button id="aBtn">Hello!</button>
@@ -51,66 +52,67 @@
 
       <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
       <div class="row movies">
-        <img id="poster-place" src="">
-      </div>
- 
-    </div> <!-- CONTAINER DIV ENDS HERE-->
-    
+        <img id="poster-place"
+          src="https://m.media-amazon.com/images/M/MV5BMmVmODY1MzEtYTMwZC00MzNhLWFkNDMtZjAwM2EwODUxZTA5XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg">
 
+        <!-- MODAL SECTION  -->
 
-    <!-- MODAL SECTION  -->
+        <div id="modal-div">
 
-    <div id="modal-div">
+          <button id="myBtn">View Details</button>
 
-      <button id="myBtn">Open Modal</button>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
 
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="modal-container">
 
-        <!-- Modal content -->
-        <div class="modal-content" id="modal-container"> 
-          
-          <div> <!-- modal closing icon -->
-            <span class="close">&times;</span>
-          </div>
-
-          <div class="container">
-
-            <div class="row">
-
-              <div class="four columns" id="movie-poster">
-
-                <!-- location of movie poster -->
-                <img
-                  src="https://m.media-amazon.com/images/M/MV5BNjYwNjA3OTY0Nl5BMl5BanBnXkFtZTcwNDMyNDUzMw@@._V1_SX300.jpg" />
-
+              <div>
+                <!-- modal closing icon -->
+                <span class="close">&times;</span>
               </div>
 
+              <div class="container">
 
-              <div class="six columns" id="modal-info">
+                <div class="row">
 
-                <h3 id="modal-movie-title">MOVIE TITLE</h3>
-                <p id="modal-genre">Genre:</p>
-                <p id="modal-language">Language:</p>
-                <p id="modal-runtime">Run Time:</p>
-                <p id="modal-rated">Rated:</p>
-                <p id="modal-imdb">imDb Rating:</p>
-                <p id="modal-production">Production:</p>
-                <p id="modal-write">Writer(s):</p>
-                <p id="modal-director">Director:</p>
-                <p id="modal-starring">Starring:</p>
+                  <div class="four columns" id="movie-poster">
+
+                    <!-- location of movie poster -->
+                    <img
+                      src="https://m.media-amazon.com/images/M/MV5BNjYwNjA3OTY0Nl5BMl5BanBnXkFtZTcwNDMyNDUzMw@@._V1_SX300.jpg" />
+
+                  </div>
+
+
+                  <div class="six columns" id="modal-info">
+
+                    <h3 id="modal-movie-title">MOVIE TITLE</h3>
+                    <p id="modal-genre">Genre:</p>
+                    <p id="modal-language">Language:</p>
+                    <p id="modal-runtime">Run Time:</p>
+                    <p id="modal-rated">Rated:</p>
+                    <p id="modal-imdb">imDb Rating:</p>
+                    <p id="modal-production">Production:</p>
+                    <p id="modal-write">Writer(s):</p>
+                    <p id="modal-director">Director:</p>
+                    <p id="modal-starring">Starring:</p>
+
+                  </div>
+
+                </div>
 
               </div>
 
             </div>
 
           </div>
-        
-        </div>
+
+        </div> <!-- MODAL DIV ENDS HERE-->
 
       </div>
 
-    </div> <!-- MODAL DIV ENDS HERE-->
+    </div> <!-- CONTAINER DIV ENDS HERE-->
 
   </main>
 
@@ -127,7 +129,7 @@
   <!--   MINIFIED JQUERY  -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  
+
   <!--    JAVASCRIPT LINK     -->
   <script src="./assets/scripts/index.js"></script>
 </body>

@@ -26,12 +26,31 @@ body {
 	text-align: center;
 }
 
-.container {
-	margin: 5px;
+#user-input-container {
+	display: block;
+	text-align: center;
+}
+
+#user-input {
+	height: 36px;
+}
+
+#movie-title {
+	text-align: center;
+}
+
+#poster-place {
+	height: 300px;
+	width: auto;
+}
+
+#myBtn {
+	width: 195.22px;
 }
 
 button {
 	background-color: #e16428;
+	color: #f6e9e9;
 }
 
 /* MODAL STYLING STARTS  */
