@@ -53,6 +53,25 @@ button {
 	color: #f6e9e9;
 }
 
+
+/* MOVIE SEARCH RESULT DISPLAY */
+
+.movie-display-container {
+	margin: 5px auto;
+	padding: 0;
+}
+
+div#movie-item:nth-of-type(4n+1) {
+	margin: 0;
+}
+
+#movie-item img, 
+#selected-movie
+ {
+	width: 100%;
+}
+
+
 /* MODAL STYLING STARTS  */
 
 /* The Modal (background) */
@@ -123,4 +142,19 @@ main {
 .copyright {
 	color: #888;
 	text-align: center;
+}
+
+
+
+
+/* Media query Only for larger Screen size  */
+@media (min-width: 960px) {
+	#movie-display #movie-item .movie-card {
+		height: 390px;
+	}
+
+	#movie-display #movie-item img {
+		height: 240px;
+	}
+
 }
