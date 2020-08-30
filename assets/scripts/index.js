@@ -46,9 +46,13 @@ function uTellyURL(movieName) {
 	return `https://www.omdbapi.com/?apikey=${omdbKey}&s=${movie}`;
 }
 
+
 	
 // OMDB QUERY CALL USING AJAX 
 function omdbQuery( ) {  
+// On click listener for the button to collect the data from omdb and console.log
+$('#aBtn').click(function(event) {
+	event.preventDefault();
 	let omdbEndPoint = omdbAPI(userInput.val().trim());
 	$.ajax(omdbEndPoint)
 		.then(omdbMovieResult)
