@@ -1,81 +1,107 @@
+/* 
+COLORS:#f6e9e9; rgb(238, 236, 236); #888; #616161 #363333;   #272121; rgba(0, 0, 0, 0.4);  #161515; 
+ #e16428; pink;
+*/
+
+/* RESET THE BOX-SIZING  */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  background-color: #363333;
-  color: #f6e9e9;
-}
-button {
-  background-color: #e16428;
+	/* Top 3 for sticky Footer */
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: #363333;
+	color: #f6e9e9;
 }
 
+/* Heading area */
 #header {
-  background-color: #272121;
-  color: #f6e9e9;
-  text-align: center;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #161515;
-    color: white;
-    margin: 5px; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: rgb(238, 236, 236);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-#movie-poster {
-    display: block;
-    float: left;
-    padding-right: 60px;
-  }
-
-#modal-info {
-    margin-bottom: 5px;
-    padding-left: 60px;
-    border: solid 1px pink;
-    background-color: #363333;
-    border-radius: 15px;
+	background-color: #272121;
+	color: #f6e9e9;
+	text-align: center;
 }
 
 .container {
-    margin: 5px;
+	margin: 5px;
+}
+
+button {
+	background-color: #e16428;
+}
+
+/* MODAL STYLING STARTS  */
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #161515;
+	color: white;
+	margin: 5px; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+	color: rgb(238, 236, 236);
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#movie-poster {
+	display: block;
+	float: left;
+	padding-right: 60px;
+}
+
+#modal-info {
+	margin-bottom: 5px;
+	padding-left: 60px;
+	border: solid 1px pink;
+	background-color: #363333;
+	border-radius: 15px;
 }
 
 #modal-container {
-    margin: 5px;
+	margin: 5px;
 }
 
+/* MODAL STYLINE ENDS HERE  */
+
+/* Sticky Footer Styling */
+main {
+	flex: 1 0 auto;
+	margin: 0 10px;
+}
+
+.copyright {
+	color: #888;
+	text-align: center;
+}
