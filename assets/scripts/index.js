@@ -60,11 +60,13 @@ $(document).ready(function() {
 		let movies = omdbResponse.Search;
 		//Set an empty variable to hold all movie results for display later
 		let moviesOutput = '';
-
+	
 		//Use for-loop to append each movie result
 		$.each(movies, function(index, movie) {
-			// Only display the search results that have movie posters
-			if (movie.Poster !== 'N/A') {
+			
+      // Only display the search results that have movie posters 
+			if (movie.Poster !== "N/A") {
+        
 				//Set HTML structure and assign to a variable
 				moviesOutput += `
 				<div class="three columns" id="movie-item">
@@ -182,9 +184,6 @@ $(document).ready(function() {
 				.catch(function(err) {
 					console.log(err);
 				});
-
-			//Empty user input field after rendering search result
-			userInput.val('');
 		}
 	});
 
