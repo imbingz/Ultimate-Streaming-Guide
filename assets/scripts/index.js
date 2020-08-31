@@ -48,9 +48,7 @@ function uTellyURL(movieName) {
 
 
 	
-// OMDB QUERY CALL USING AJAX 
-function omdbQuery( ) {  
-// On click listener for the button to collect the data from omdb and console.log
+
 $('#aBtn').click(function(event) {
 	event.preventDefault();
 	let omdbEndPoint = omdbAPI(userInput.val().trim());
@@ -145,6 +143,8 @@ window.onclick = function(event) {
 
 
 
-}); //The document.ready ends here 
+
+}) 
 
 
+//The document.ready ends here 
