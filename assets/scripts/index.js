@@ -67,7 +67,7 @@ $(document).ready(function() {
 			moviesOutput += `
 			<div class="three columns" id="movie-item">
 				<div class="movie-card">
-					<img class="movie-poster" src="${movie.Poster}" alt="${movie.Title}">
+					<img class="movie-poster" src="${movie.Poster}" alt="${movie.Title}. Click to view movie details">
 					<div class="movie-details">
 						<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
 					</div>
