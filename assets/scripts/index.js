@@ -212,6 +212,8 @@ $(document).ready(function () {
 
 
 
-}) //The document.ready ends here 
+
+}) 
 
 
+//The document.ready ends here 

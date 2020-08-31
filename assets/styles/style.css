@@ -117,11 +117,12 @@ div#movie-item:nth-of-type(4n+1) {
 	display: block;
 	float: left;
 	padding-right: 60px;
+	padding-left: 10px;
 }
 
 #modal-info {
-	margin-bottom: 5px;
-	padding-left: 60px;
+	margin: 0px 0px 0px 0px;
+	padding-left: 10px;
 	border: solid 1px pink;
 	background-color: #363333;
 	border-radius: 15px;
@@ -129,6 +130,34 @@ div#movie-item:nth-of-type(4n+1) {
 
 #modal-container {
 	margin: 5px;
+	padding: 5px;
+}
+
+#modal-box {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+p {
+	margin: 0px 0px 0px 0px;
+	padding-bottom: 8px;
+}
+
+#info-tags {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#plot-summary {
+	font-size: 12px;
+	padding-left: 10px;
+	text-align: justify;
+}
+
+#plot-span {
+	margin-bottom: 0px;
+	font-weight: bold;
+	text-align: center;
 }
 
 /* MODAL STYLINE ENDS HERE  */
