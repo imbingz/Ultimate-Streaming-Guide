@@ -65,7 +65,7 @@ $(document).ready(function() {
 		$.each(movies, function(index, movie) {
 
 			// Only display the search results that have movie posters 
-			if (movie.Poster !== null) {
+			if (movie.Poster !== "N/A") {
 
 				//Set HTML structure and assign to a variable
 				moviesOutput += `
