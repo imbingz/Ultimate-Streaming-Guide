@@ -63,20 +63,26 @@ $(document).ready(function() {
 
 		//Use for-loop to append each movie result
 		$.each(movies, function(index, movie) {
-			//Set HTML structure and assign to a variable
-			moviesOutput += `
-			<div class="three columns" id="movie-item">
-				<div class="movie-card">
-					<img class="movie-poster" src="${movie.Poster}" alt="movie cover image">
-					<div class="movie-details">
-						<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
+			// Only display the search results that have movie posters
+			if (movie.Poster !== 'N/A') {
+				//Set HTML structure and assign to a variable
+				moviesOutput += `
+				<div class="three columns" id="movie-item">
+					<div class="movie-card">
+						<img class="movie-poster" src="${movie.Poster}" alt="${movie.Title}. Click to view movie details">
+						<div class="movie-details">
+							<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		`;
+			`;
+			}
 		});
 		//Append the movie result to HTML movie-display <div>
 		$('#movie-display').append(moviesOutput);
+
+		//Empty user input field after rendering search result
+		userInput.val('');
 	}
 
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON
@@ -103,49 +109,51 @@ $(document).ready(function() {
 			url: idURL,
 			method: 'GET'
 		})
-			.then(function(response) {
-				console.log(response);
-				let movie = response;
-
-				//HTML modal structure
-				let movieDetails = `	
-							<div>
-								<span class="close">&times;</span>
-							</div>
-							<div class="container">
-								<div class="row">
-									<div class="four columns" id="movie-poster">
-										<img src="${movie.Poster}" class="thumbnail">
-										<h6>Plot</h6>
-										<p>${movie.Plot}<p>
-									</div>
-									<div class="six columns" id="modal-info">
-										<h3 id="modal-movie-title">${movie.Title}</h3>
-										<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
-										<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
-										<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
-										<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
-										<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
-										<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
-										<p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
-										<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
-										<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
-										<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
-									</div>
-								</div>
-							</div>
-				`;
-
-				$('#modal-container').append(movieDetails);
-
-				// When the user clicks on <span> (x), close the modal
-				$('.close').click(function() {
-					modal.style.display = 'none';
-				});
-			})
+			.then(movieDetails)
 			.catch(function(err) {
 				console.log(err);
 			});
+	}
+
+	// Render movie details to modal
+	function movieDetails(omdbData) {
+		console.log(omdbData);
+		let movie = omdbData;
+		//HTML modal structure
+		let movieDetails = `	
+					<div>
+						<span class="close">&times;</span>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="four columns" id="movie-poster">
+								<img src="${movie.Poster}" class="thumbnail">
+								<h6>Plot</h6>
+								<p>${movie.Plot}<p>
+							</div>
+							<div class="six columns" id="modal-info">
+								<h3 id="modal-movie-title">${movie.Title}</h3>
+								<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
+								<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
+								<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
+								<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
+								<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
+								<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
+								<p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
+								<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
+								<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
+								<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
+							</div>
+						</div>
+					</div>
+		`;
+
+		$('#modal-container').append(movieDetails);
+
+		// When the user clicks on <span> (x), close the modal
+		$('.close').click(function() {
+			modal.style.display = 'none';
+		});
 	}
 
 	/* EVENT HANDLERS 
@@ -174,6 +182,9 @@ $(document).ready(function() {
 				.catch(function(err) {
 					console.log(err);
 				});
+
+			//Empty user input field after rendering search result
+			userInput.val('');
 		}
 	});
 
