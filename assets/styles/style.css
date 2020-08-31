@@ -108,7 +108,7 @@ div#movie-item:nth-of-type(4n+1) {
 
 .close:hover,
 .close:focus {
-	color: black;
+	color: #e16428;
 	text-decoration: none;
 	cursor: pointer;
 }
