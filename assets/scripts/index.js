@@ -60,20 +60,25 @@ $(document).ready(function() {
 		let movies = omdbResponse.Search;
 		//Set an empty variable to hold all movie results for display later
 		let moviesOutput = '';
-
+	
 		//Use for-loop to append each movie result
 		$.each(movies, function(index, movie) {
-			//Set HTML structure and assign to a variable
-			moviesOutput += `
-			<div class="three columns" id="movie-item">
-				<div class="movie-card">
-					<img class="movie-poster" src="${movie.Poster}" alt="movie cover image">
-					<div class="movie-details">
-						<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
+
+			// Only display the search results that have movie posters 
+			if (movie.Poster !== null) {
+
+				//Set HTML structure and assign to a variable
+				moviesOutput += `
+				<div class="three columns" id="movie-item">
+					<div class="movie-card">
+						<img class="movie-poster" src="${movie.Poster}" alt="movie cover image">
+						<div class="movie-details">
+							<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		`;
+			`;
+			}
 		});
 		//Append the movie result to HTML movie-display <div>
 		$('#movie-display').append(moviesOutput);
@@ -174,6 +179,9 @@ $(document).ready(function() {
 				.catch(function(err) {
 					console.log(err);
 				});
+			
+			//Empty user input field after rendering search result 
+			userInput.val('');
 		}
 	});
 
