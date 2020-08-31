@@ -89,9 +89,6 @@ function omdbQuery( ) {
 		
 	}
 
-
-
-
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON 
 
 	$('#movie-display').on('click', 'button', appendToModal);
@@ -148,8 +145,6 @@ function omdbQuery( ) {
 									</div>
 								</div>
 							</div>
-		
-				
 				`;
 
 				$('#modal-container').append(movieDetails);
