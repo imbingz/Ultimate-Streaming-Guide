@@ -1,22 +1,20 @@
-$(document).ready(function () {
-
+$(document).ready(function() {
 	/* GLOBAL VARIABLES
 	 ==================================================================================================== */
 
-
 	//OMDB API key
 	const omdbKey = 'dd9cc031';
-	// Search Input element 
+	// Search Input element
 	let userInput = $('#user-input');
 
 	// Get the modal
-	var modal = document.getElementById("myModal");
+	var modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
-	var modalBtn = document.getElementById("btn-modal");
+	var modalBtn = document.getElementById('btn-modal');
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	var span = document.getElementsByClassName('close')[0];
 
 	// UTELLY INFORMATION AND CALL
 	var settings = {
@@ -29,12 +27,10 @@ $(document).ready(function () {
 		}
 	};
 
-
-
 	/* FUNCTIONS 
 	======================================================================================================== */
 
-	// GENERATE UTELLY URL 
+	// GENERATE UTELLY URL
 	function uTellyURL(movieName) {
 		return 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + movieName + '&country=uk';
 	}
@@ -46,33 +42,28 @@ $(document).ready(function () {
 		return `https://www.omdbapi.com/?apikey=${omdbKey}&s=${movie}`;
 	}
 
-
-
-	// OMDB QUERY CALL USING AJAX 
+	// OMDB QUERY CALL USING AJAX
 
 	function omdbQuery() {
 		let omdbEndPoint = omdbAPI(userInput.val().trim());
-		$.ajax(omdbEndPoint)
-			.then(omdbMovieResult)
-			.catch(function (err) {
-				console.log(err);
-			});
+		$.ajax(omdbEndPoint).then(omdbMovieResult).catch(function(err) {
+			console.log(err);
+		});
 	}
 
 	// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
 
 	function omdbMovieResult(omdbResponse) {
 		console.log(omdbResponse);
-
+		$('#movie-display').empty();
 		// save response.search to a variable
 		let movies = omdbResponse.Search;
-		//Set an empty variable to hold all movie results for display later 
+		//Set an empty variable to hold all movie results for display later
 		let moviesOutput = '';
 
-		//Use for-loop to append each movie result 
-		$.each(movies, function (index, movie) {
-
-			//Set HTML structure and assign to a variable 
+		//Use for-loop to append each movie result
+		$.each(movies, function(index, movie) {
+			//Set HTML structure and assign to a variable
 			moviesOutput += `
 			<div class="three columns" id="movie-item">
 				<div class="movie-card">
@@ -85,38 +76,38 @@ $(document).ready(function () {
 		`;
 		});
 		//Append the movie result to HTML movie-display <div>
-		$('#movie-display').append(moviesOutput)
-
+		$('#movie-display').append(moviesOutput);
 	}
 
-	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON 
+	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON
 
 	$('#movie-display').on('click', 'button', appendToModal);
 
 	function appendToModal() {
+		modal.style.display = 'block';
 
-		modal.style.display = "block";
+		$('#modal-container').empty();
 
 		// Get the data-id info for each button clicked
 		let id = $(this).attr('data-id');
-		
+
 		//Save the last selected movieID to local storage
 		localStorage.setItem('movieID', id);
-	
-		//get movieID from local Storage
-		let movieID = localStorage.getItem('movieID')
 
-		let idURL = `https://www.omdbapi.com/?i=${movieID}&apikey=dd9cc031`
+		//get movieID from local Storage
+		let movieID = localStorage.getItem('movieID');
+
+		let idURL = `https://www.omdbapi.com/?i=${movieID}&apikey=dd9cc031`;
 		console.log(idURL);
 		$.ajax({
 			url: idURL,
 			method: 'GET'
 		})
-			.then(function (response) {
+			.then(function(response) {
 				console.log(response);
 				let movie = response;
 
-				//HTML modal structure 
+				//HTML modal structure
 				let movieDetails = `	
 							<div>
 								<span class="close">&times;</span>
@@ -148,63 +139,52 @@ $(document).ready(function () {
 				$('#modal-container').append(movieDetails);
 
 				// When the user clicks on <span> (x), close the modal
-				$(".close").click(function () {
-					modal.style.display = "none";
+				$('.close').click(function() {
+					modal.style.display = 'none';
 				});
-
-			}).catch(function (err) {
+			})
+			.catch(function(err) {
 				console.log(err);
 			});
 	}
 
-
 	/* EVENT HANDLERS 
 	======================================================================================================== */
 
-
 	// On click listener for the button to collect the data from omdb and console.log
-	$('#searchBtn').click(function () {
-
-		// Prevent form submisson and page reload 
+	$('#searchBtn').click(function() {
+		// Prevent form submisson and page reload
 		event.preventDefault();
 
-		//Set a variable for user movie input 
+		//Set a variable for user movie input
 		let movie = userInput.val().trim();
 
-		//First check if there is movie input 
+		//First check if there is movie input
 
 		if (movie) {
-
 			//omdb query call func
 			omdbQuery();
 
-			// utelly querry call 
+			// utelly querry call
 			let uTellyEndPoint = uTellyURL(userInput.val().trim());
-			$.ajax(uTellyEndPoint, settings).then(function (response) {
-				console.log(response);
-			}).catch(function (err) {
-				console.log(err);
-			});;
+			$.ajax(uTellyEndPoint, settings)
+				.then(function(response) {
+					console.log(response);
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
 		}
-
 	});
 
-
-	// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW 
-
+	// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW
 
 	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function (event) {
+	window.onclick = function(event) {
 		if (event.target == modal) {
-			modal.style.display = "none";
+			modal.style.display = 'none';
 		}
-	}
+	};
+});
 
-
-
-
-
-}) 
-
-
-//The document.ready ends here 
+//The document.ready ends here
