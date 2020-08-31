@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-/* GLOBAL VARIABLES
- ==================================================================================================== */
-	
-	
+	/* GLOBAL VARIABLES
+	 ==================================================================================================== */
+
+
 	//OMDB API key
 	const omdbKey = 'dd9cc031';
 	// Search Input element 
@@ -17,51 +17,50 @@ $(document).ready(function() {
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
-	
+
 	// UTELLY INFORMATION AND CALL
 	var settings = {
-	async: true,
-	crossDomain: true,
-	method: 'GET',
-	headers: {
-		'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
-		'x-rapidapi-key': 'f82a92dbacmsh1aca7fdf76b1beap187f62jsn400f4f407b76'
+		async: true,
+		crossDomain: true,
+		method: 'GET',
+		headers: {
+			'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
+			'x-rapidapi-key': 'f82a92dbacmsh1aca7fdf76b1beap187f62jsn400f4f407b76'
+		}
+	};
+
+
+
+	/* FUNCTIONS 
+	======================================================================================================== */
+
+	// GENERATE UTELLY URL 
+	function uTellyURL(movieName) {
+		return 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + movieName + '&country=uk';
 	}
-};
 
-	
-
-/* FUNCTIONS 
-======================================================================================================== */
-	
-// GENERATE UTELLY URL 
-function uTellyURL(movieName) {
-	return 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + movieName + '&country=uk';
-}
-
-// OMDB INFORMATION AND CALL
+	// OMDB INFORMATION AND CALL
 
 	function omdbAPI(movie) {
-	console.log(movie);
-	return `https://www.omdbapi.com/?apikey=${omdbKey}&s=${movie}`;
-}
+		console.log(movie);
+		return `https://www.omdbapi.com/?apikey=${omdbKey}&s=${movie}`;
+	}
 
 
-	
 
-// OMDB QUERY CALL USING AJAX 
-	
-function omdbQuery( ) {  
-	let omdbEndPoint = omdbAPI(userInput.val().trim());
-	$.ajax(omdbEndPoint)
-		.then(omdbMovieResult)
-		.catch(function(err) {
-		console.log(err);
-	});
-})
-	
-// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
-	
+	// OMDB QUERY CALL USING AJAX 
+
+	function omdbQuery() {
+		let omdbEndPoint = omdbAPI(userInput.val().trim());
+		$.ajax(omdbEndPoint)
+			.then(omdbMovieResult)
+			.catch(function (err) {
+				console.log(err);
+			});
+	}
+
+	// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
+
 	function omdbMovieResult(omdbResponse) {
 		console.log(omdbResponse);
 
@@ -71,7 +70,7 @@ function omdbQuery( ) {
 		let moviesOutput = '';
 
 		//Use for-loop to append each movie result 
-		$.each(movies, function(index, movie) {
+		$.each(movies, function (index, movie) {
 
 			//Set HTML structure and assign to a variable 
 			moviesOutput += `
@@ -87,7 +86,7 @@ function omdbQuery( ) {
 		});
 		//Append the movie result to HTML movie-display <div>
 		$('#movie-display').append(moviesOutput)
-		
+
 	}
 
 
@@ -108,17 +107,17 @@ function omdbQuery( ) {
 		modal.style.display = "block";
 
 		// Store movieID to localStorage
-		selectedMovie(); 
+		selectedMovie();
 
 		//get movieID from local Storage
 		let movieID = localStorage.getItem('movieID')
 		let idURL = `https://www.omdbapi.com/?i=${movieID}&apikey=dd9cc031`
 		console.log(idURL);
 		$.ajax({
-      url: idURL,
-			method: 'GET'			
-    })
-			.then(function(response) {
+			url: idURL,
+			method: 'GET'
+		})
+			.then(function (response) {
 				console.log(response);
 				let movie = response;
 
@@ -157,57 +156,58 @@ function omdbQuery( ) {
 
 				$('#modal-container').append(movieDetails);
 
-			}).catch(function(err) {
+				// When the user clicks on <span> (x), close the modal
+				$(".close").click(function () {
+					modal.style.display = "none";
+				});
+
+			}).catch(function (err) {
 				console.log(err);
-			});	
-}
-
-
-/* EVENT HANDLERS 
-======================================================================================================== */
-	
-	
-// On click listener for the button to collect the data from omdb and console.log
-$('#searchBtn').click(function() {
-
-	// Prevent form submisson and page reload 
-	event.preventDefault(); 
-
-	//Set a variable for user movie input 
-	let movie = userInput.val().trim();
-
-	//First check if there is movie input 
-
-	if (movie) {
-	
-	//omdb query call func
-	omdbQuery(); 
-
-	// utelly querry call 
-	let uTellyEndPoint = uTellyURL(userInput.val().trim());
-	$.ajax(uTellyEndPoint, settings).then(function(response) {
-		console.log(response);
-	}).catch(function(err) {
-		console.log(err);
-	});;
+			});
 	}
 
-});
+
+	/* EVENT HANDLERS 
+	======================================================================================================== */
 
 
-// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW 
+	// On click listener for the button to collect the data from omdb and console.log
+	$('#searchBtn').click(function () {
 
-// When the user clicks on <span> (x), close the modal
-span.onclick(function() {
-	modal.style.display = "none";
-});
+		// Prevent form submisson and page reload 
+		event.preventDefault();
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+		//Set a variable for user movie input 
+		let movie = userInput.val().trim();
+
+		//First check if there is movie input 
+
+		if (movie) {
+
+			//omdb query call func
+			omdbQuery();
+
+			// utelly querry call 
+			let uTellyEndPoint = uTellyURL(userInput.val().trim());
+			$.ajax(uTellyEndPoint, settings).then(function (response) {
+				console.log(response);
+			}).catch(function (err) {
+				console.log(err);
+			});;
+		}
+
+	});
+
+
+	// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW 
+
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
 
 
 
