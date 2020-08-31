@@ -90,12 +90,6 @@ function omdbQuery( ) {
 	}
 
 
-	// SAVE MOVIE ID TO LOCAL STORAGE
-	function selectedMovie() {
-		let id = $("#btn-modal").attr('data-id');
-		localStorage.setItem('movieID', id);
-		console.log(id);
-	}
 
 
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON 
@@ -106,11 +100,15 @@ function omdbQuery( ) {
 
 		modal.style.display = "block";
 
-		// Store movieID to localStorage
-		selectedMovie(); 
+		// Get the data-id info for each button clicked
+		let id = $(this).attr('data-id');
+		
+		//Save the last selected movieID to local storage
+		localStorage.setItem('movieID', id);
 
 		//get movieID from local Storage
 		let movieID = localStorage.getItem('movieID')
+
 		let idURL = `https://www.omdbapi.com/?i=${movieID}&apikey=dd9cc031`
 		console.log(idURL);
 		$.ajax({
