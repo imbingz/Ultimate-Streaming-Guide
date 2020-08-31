@@ -68,11 +68,8 @@ $(document).ready(function() {
 				//Set HTML structure and assign to a variable
 				moviesOutput += `
 				<div class="three columns" id="movie-item">
-					<div class="movie-card">
-						<img class="movie-poster" src="${movie.Poster}" alt="${movie.Title}. Click to view movie details">
-						<div class="movie-details">
-							<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
-						</div>
+					<div class="movie-card movie-details">
+						<img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}" alt="${movie.Title}. Click to view movie details">
 					</div>
 				</div>
 			`;
@@ -87,7 +84,7 @@ $(document).ready(function() {
 
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON
 
-	$('#movie-display').on('click', 'button', appendToModal);
+	$('#movie-display').on('click', 'img', appendToModal);
 
 	function appendToModal() {
 		modal.style.display = 'block';
