@@ -60,7 +60,7 @@ $(document).ready(function() {
 		let movies = omdbResponse.Search;
 		//Set an empty variable to hold all movie results for display later
 		let moviesOutput = '';
-
+	
 		//Use for-loop to append each movie result
 		$.each(movies, function(index, movie) {
 			// Only display the search results that have movie posters
@@ -128,19 +128,20 @@ $(document).ready(function() {
 								<h6>Plot</h6>
 								<p>${movie.Plot}<p>
 							</div>
-							<div class="six columns" id="modal-info">
-								<h3 id="modal-movie-title">${movie.Title}</h3>
-								<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
-								<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
-								<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
-								<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
-								<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
-								<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
-								<p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
-								<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
-								<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
-								<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
-							</div>
+		
+              <div class="six columns" id="modal-info">
+                <h3 id="modal-movie-title">${movie.Title}</h3>
+                <p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
+                <p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
+                <p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
+                <p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
+                <p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
+                <p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
+                <p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
+                <p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
+                <p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
+                <p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
+              </div>
 						</div>
 					</div>
 		`;
@@ -180,8 +181,6 @@ $(document).ready(function() {
 					console.log(err);
 				});
 
-			//Empty user input field after rendering search result
-			userInput.val('');
 		}
 	});
 
