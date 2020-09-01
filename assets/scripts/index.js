@@ -70,11 +70,8 @@ $(document).ready(function() {
 				//Set HTML structure and assign to a variable
 				moviesOutput += `
 				<div class="three columns" id="movie-item">
-					<div class="movie-card">
-						<img class="movie-poster" src="${movie.Poster}" alt="${movie.Title}. Click to view movie details">
-						<div class="movie-details">
-							<button id="btn-modal" class="button" data-id="${movie.imdbID}">Movie Details</button>
-						</div>
+					<div class="movie-card movie-details">
+						<img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}" alt="${movie.Title}. Click to view movie details">
 					</div>
 				</div>
 			`;
@@ -89,7 +86,7 @@ $(document).ready(function() {
 
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE DETAILS BUTTON
 
-	$('#movie-display').on('click', 'button', appendToModal);
+	$('#movie-display').on('click', 'img', appendToModal);
 
 	function appendToModal() {
 		modal.style.display = 'block';
@@ -133,19 +130,20 @@ $(document).ready(function() {
 								<h6>Plot</h6>
 								<p>${movie.Plot}<p>
 							</div>
-							<div class="six columns" id="modal-info">
-								<h3 id="modal-movie-title">${movie.Title}</h3>
-								<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
-								<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
-								<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
-								<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
-								<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
-								<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
-								<p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
-								<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
-								<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
-								<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
-							</div>
+		
+              <div class="six columns" id="modal-info">
+                <h3 id="modal-movie-title">${movie.Title}</h3>
+                <p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
+                <p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
+                <p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
+                <p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
+                <p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
+                <p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
+                <p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
+                <p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
+                <p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
+                <p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
+              </div>
 						</div>
 					</div>
 		`;
