@@ -121,7 +121,7 @@ $(document).ready(function() {
 		</div>
 		<div class="container" id="modal-box">
 		   <div class="row">
-		    	<div class="five columns" id="movie-poster">
+		    	<div class="five columns movie-poster " id="movie-poster">
 					<img src="${movie.Poster}" class="thumbnail"/>
 		      	</div>
 		    	<div class="seven columns" id="modal-info">
@@ -132,8 +132,8 @@ $(document).ready(function() {
 					<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
 					<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
 					<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
-					<p id="modal-production"><strong>Genre: </strong>${movie.Production}</p>
-					<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
+					<p id="modal-production"><strong>Production: </strong>${movie.Production}</p>
+					<p id="modal-writer"><strong>Writer: </strong>${movie.Writer}</p>
 					<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
 					<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
 		        </div>
@@ -162,7 +162,7 @@ $(document).ready(function() {
 				});
 				if (matches.length === 1 && matches[0].locations.length > 0) {
 					matches[0].locations.forEach(function(streamingLocation) {
-						let liEl = `<li><img src="${streamingLocation.icon}"/></li>`;
+						let liEl = `<li><img id="modal-logo" src="${streamingLocation.icon}"/></li>`;
 						$('#streaming-services').append(liEl);
 					});
 				} else {
