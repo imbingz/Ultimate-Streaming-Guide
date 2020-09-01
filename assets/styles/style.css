@@ -120,17 +120,15 @@ div#movie-item:nth-of-type(4n+1) {
 
 #movie-poster {
 	display: block;
-	float: left;
 	padding-right: 90px;
-	padding-left: 15px;
-	padding-top: 15px;
-	margin
+	padding-left: 25px;
+	padding-top: 25px;
 }
 
 #modal-info {
 	margin: 0px 0px 0px 0px;
-	padding-left: 45px;
-	padding-top: 15px;
+	padding-left: 30px;
+	padding-top: 25px;
 	/* border: solid 1px pink; */
 	/* background-color: #363333; */
 	background-color: #161515; 
@@ -154,7 +152,6 @@ p {
 }
 
 #plot {
-	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-bottom: 0px;
 	font-weight: bold;
@@ -162,17 +159,31 @@ p {
 }
 
 #plot-div {
-	padding-left: 15px;
+	padding-left: 25px;
+	padding-top: 5px;
 }
 
 #service-row {
-	padding-left: 15px;
+	padding-left: 25px;
 }
 
 #stream-title {
-	padding-left: 15px;
+	padding-left: 25px;
+	padding-bottom: 8px;
 	color: #e16428;
 	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+ul #streaming-services li {
+	display: inline;
+	padding-left: 15px;
+}
+
+hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 25px;
 }
 
 /* MODAL STYLINE ENDS HERE  */
