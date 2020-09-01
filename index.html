@@ -57,11 +57,21 @@
       <div class="container movie-display-container">
 
         <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
-        <div class="row" id="movie-display">
+        <div class="row movie-card movie-details" id="movie-display">
           <!-- <img id="poster-place" src=""> -->
-
         </div>
 
+        <!-- * NOTE: moved class .movie-card .movie-details to .row div. deleted "three columns" class and "movie-item" id attr-->
+
+        <!-- *NOTE---BELOW ARE THE CODES MODIFIED IN JS -- -->
+
+        <!-- moviesOutput += `
+        <div class="three columns" id="movie-item">
+          <div class="movie-card movie-details">
+            <img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}"
+              alt="${movie.Title}. Click to view movie details">
+          </div>
+        </div> -->
 
       </div> <!-- MOVIE DISPLAY CONTAINER ENDS HERE-->
 
