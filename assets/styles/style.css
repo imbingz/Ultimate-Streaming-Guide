@@ -24,7 +24,14 @@ body {
 	background-color: #272121;
 	color: #f6e9e9;
 	text-align: center;
+	width: 100%;
 }
+
+h1 {
+	padding: 1.5rem;
+}
+
+/*  USER INPUT FORM  */
 
 #user-input-container {
 	display: block;
@@ -33,19 +40,6 @@ body {
 
 #user-input {
 	height: 36px;
-}
-
-#movie-title {
-	text-align: center;
-}
-
-#poster-place {
-	height: 300px;
-	width: auto;
-}
-
-#myBtn {
-	width: 195.22px;
 }
 
 button {
@@ -57,20 +51,45 @@ button {
 
 /* MOVIE SEARCH RESULT DISPLAY */
 
-.movie-display-container {
-	margin: 5px auto;
-	padding: 0;
+	/* NOTE : NOT IN USE 
+	.movie-display-container {
+		margin: 5px auto;
+		padding: 0;
+	} */
+
+#movie-display {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100vw;
+	max-width: 960px;
+	/* justify-content: space-between; */
 }
 
-div#movie-item:nth-of-type(4n+1) {
-	margin: 0;
+img.movie-poster {
+	width: 200px;
+	height: 300px;
+	cursor: pointer;
+	margin-right: 15px;
+	margin-bottom: 25px;
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
+  border-radius: 3px;
 }
 
-#movie-item img, 
-#selected-movie
- {
-	width: 100%;
-}
+/* NOTE: No #movie-title in file #movie-title {
+	text-align: center;
+} */
+
+/* NOTE: No #poster-place in file
+#poster-place {
+	height: 300px;
+	width: auto;
+} */
+
+/* NOTE: no #myBtn in file
+#myBtn {
+	width: 195.22px;
+} */
+
 
 
 /* MODAL STYLING STARTS  */
@@ -200,9 +219,8 @@ main {
 }
 
 
-
-
 /* Media query Only for larger Screen size  */
+
 @media (min-width: 960px) {
 	#movie-display #movie-item .movie-card {
 		height: 390px;
@@ -210,6 +228,45 @@ main {
 
 	#movie-display #movie-item img {
 		height: 240px;
+	}
+
+}
+
+/* Media query Only for tablet Screen size  */
+
+@media (max-width: 850px) {
+ 	h1 {
+		font-size: 2rem;
+		font-weight: 400;
+		padding: 10px;
+	}
+
+	img.movie-poster {
+		width: 150px;
+		height: 210px;
+	}
+
+}
+
+/* Media query Only for smaller Screen size  */
+
+@media (max-width: 550px) {
+
+	h1 {
+		font-size: 1.8rem;
+		font-weight: 400;
+		padding: 10px;
+	}
+
+	img.movie-poster {
+	width: 110px;
+	height: 170px;
+	margin-right: 12px;
+	margin-bottom: 18px;
+	}
+
+	.copyright {
+	font-size: 0.8rem;
 	}
 
 }
