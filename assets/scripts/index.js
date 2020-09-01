@@ -123,12 +123,12 @@ $(document).ready(function() {
 		<div>
 		   <span class="close">&times;</span>
 		</div>
-		<div class="container">
+		<div class="container" id="modal-box">
 		   <div class="row">
-		    	<div class="four columns" id="movie-poster">
+		    	<div class="five columns" id="movie-poster">
 					<img src="${movie.Poster}" class="thumbnail"/>
 		      	</div>
-		    	<div class="six columns" id="modal-info">
+		    	<div class="seven columns" id="modal-info">
 					<h3 id="modal-movie-title">${movie.Title}</h3>
 					<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
 					<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
@@ -142,12 +142,13 @@ $(document).ready(function() {
 					<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
 		        </div>
 			</div>
-			<div class="row">
-				<h6>Plot</h6>
+			<hr>
+			<div class="row" id="plot-div">
+				<h6 id="plot">Plot Summary</h6>
 				<p>${movie.Plot}<p>
 			</div>
-			<div class="row">
-				<h6>Streaming Available at</h6>
+			<div class="row" "service-row">
+				<h6 id="stream-title">Streaming Available at:</h6>
 				<ul id="streaming-services"></ul>
 			</div>
 		</div>
