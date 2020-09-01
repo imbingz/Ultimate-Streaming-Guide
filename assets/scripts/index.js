@@ -67,7 +67,9 @@ $(document).ready(function() {
 			if (movie.Poster !== 'N/A') {
 				//Set HTML structure and assign to a variable
 				moviesOutput += `
+					<div class="movie-card movie-details">
 						<img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}" alt="${movie.Title}. Click to view movie details">
+					</div>
 			`;
 			}
 		});
