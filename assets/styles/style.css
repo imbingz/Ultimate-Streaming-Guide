@@ -40,7 +40,23 @@ h1 {
 
 #user-input {
 	height: 36px;
+	width: 20rem;
+	text-align: center;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: 1.1rem;
+}
+
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-size: 1.1rem;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  font-size: 1.1rem;
+}
+
 
 button {
 	background-color: #e16428;
@@ -58,21 +74,35 @@ button {
 	} */
 
 #movie-display {
+	margin: .5vw;
+	display: -webkit-flex;
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	width: 100vw;
-	max-width: 960px;
+	max-width: 1200px;
 	/* justify-content: space-between; */
+}
+
+div.movie-card {
+	justify-content: center;
+	width: 200px;
+	margin: 1.8vw;
 }
 
 img.movie-poster {
 	width: 200px;
 	height: 300px;
 	cursor: pointer;
-	margin-right: 15px;
-	margin-bottom: 25px;
-	box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
-  border-radius: 3px;
+	/* margin-right: 15px;
+	margin-bottom: 25px; */
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.55);
+  border-radius: 5px;
+}
+
+img.movie-poster:hover {
+	opacity: 0.6;
+	transition: 0.5s;
+	transform: scale(1.2);
 }
 
 /* NOTE: No #movie-title in file #movie-title {
@@ -221,31 +251,38 @@ main {
 
 /* Media query Only for larger Screen size  */
 
-@media (min-width: 960px) {
-	#movie-display #movie-item .movie-card {
-		height: 390px;
+@media screen and (min-width: 1200px) {
+	h1 {
+		padding: 20px;
 	}
 
-	#movie-display #movie-item img {
-		height: 240px;
+	div.movie-card {
+		width: 220px;
+		margin: 1.5vw;
 	}
 
+	img.movie-poster {
+		width: 220px;
+		height: 330px;
+	}
 }
+
 
 /* Media query Only for tablet Screen size  */
 
 @media (max-width: 850px) {
  	h1 {
-		font-size: 2rem;
-		font-weight: 400;
-		padding: 10px;
+		font-size: 4.5rem;
+	}
+
+	div.movie-card {
+	width: 150px;
 	}
 
 	img.movie-poster {
 		width: 150px;
 		height: 210px;
 	}
-
 }
 
 /* Media query Only for smaller Screen size  */
@@ -253,20 +290,33 @@ main {
 @media (max-width: 550px) {
 
 	h1 {
-		font-size: 1.8rem;
-		font-weight: 400;
-		padding: 10px;
+		font-size: 3rem;
+	}
+
+	div.movie-card {
+		width: 110px;
+		margin: 1.5vw;
 	}
 
 	img.movie-poster {
 	width: 110px;
 	height: 170px;
-	margin-right: 12px;
-	margin-bottom: 18px;
+	/* margin-right: 12px;
+	margin-bottom: 18px; */
 	}
 
 	.copyright {
 	font-size: 0.8rem;
 	}
+}
 
+@media screen and (max-width: 375px) {
+		
+	h1 {
+		font-size: 2.5rem;
+	}
+	div.movie-card {
+		width: 110px;
+		margin: 6vw;
+	}
 }
