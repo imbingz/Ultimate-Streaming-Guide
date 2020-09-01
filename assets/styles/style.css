@@ -20,6 +20,12 @@ body {
 }
 
 /* Heading area */
+#logo {
+	height: 4%;
+	width: 4%;
+	float: left;
+}
+
 #header {
 	background-color: #272121;
 	color: #f6e9e9;
