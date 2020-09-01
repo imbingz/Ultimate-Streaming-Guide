@@ -124,6 +124,7 @@ div#movie-item:nth-of-type(4n+1) {
 	padding-right: 90px;
 	padding-left: 15px;
 	padding-top: 15px;
+	margin
 }
 
 #modal-info {
@@ -162,6 +163,16 @@ p {
 
 #plot-div {
 	padding-left: 15px;
+}
+
+#service-row {
+	padding-left: 15px;
+}
+
+#stream-title {
+	padding-left: 15px;
+	color: #e16428;
+	font-weight: bold;
 }
 
 /* MODAL STYLINE ENDS HERE  */
