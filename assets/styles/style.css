@@ -148,7 +148,7 @@ img.movie-poster:hover {
 .modal-content {
 	background-color: #161515;
 	color: white;
-	margin: 5px; /* 15% from the top and centered */
+	margin: auto; /* 15% from the top and centered */
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
