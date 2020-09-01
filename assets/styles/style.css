@@ -98,6 +98,10 @@ div#movie-item:nth-of-type(4n+1) {
 	width: 80%; /* Could be more or less, depending on screen size */
 }
 
+#modal-movie-title {
+	color: #e16428;
+}
+
 /* The Close Button */
 .close {
 	color: rgb(238, 236, 236);
@@ -116,21 +120,19 @@ div#movie-item:nth-of-type(4n+1) {
 #movie-poster {
 	display: block;
 	float: left;
-	padding-right: 60px;
-	padding-left: 10px;
+	padding-right: 90px;
+	padding-left: 15px;
+	padding-top: 15px;
 }
 
 #modal-info {
 	margin: 0px 0px 0px 0px;
-	padding-left: 10px;
-	border: solid 1px pink;
-	background-color: #363333;
-	border-radius: 15px;
-}
-
-#modal-container {
-	margin: 5px;
-	padding: 5px;
+	padding-left: 45px;
+	padding-top: 15px;
+	/* border: solid 1px pink; */
+	/* background-color: #363333; */
+	background-color: #161515; 
+	/* border-radius: 15px; */
 }
 
 #modal-box {
@@ -140,7 +142,8 @@ div#movie-item:nth-of-type(4n+1) {
 
 p {
 	margin: 0px 0px 0px 0px;
-	padding-bottom: 8px;
+	padding-bottom: 12px;
+	font-size: 14px;
 }
 
 #info-tags {
@@ -148,16 +151,16 @@ p {
 	margin-right: 0px;
 }
 
-#plot-summary {
-	font-size: 12px;
-	padding-left: 10px;
-	text-align: justify;
-}
-
-#plot-span {
+#plot {
+	padding-top: 5px;
+	padding-bottom: 5px;
 	margin-bottom: 0px;
 	font-weight: bold;
-	text-align: center;
+	color: #e16428;
+}
+
+#plot-div {
+	padding-left: 15px;
 }
 
 /* MODAL STYLINE ENDS HERE  */

@@ -117,15 +117,13 @@ $(document).ready(function() {
 							<div>
 								<span class="close">&times;</span>
 							</div>
-							<div class="container">
+							<div class="container" id="modal-box">
 								<div class="row">
-									<div class="four columns" id="movie-poster">
-										<img alt="${movie.Title}" src="${movie.Poster}" class="thumbnail">
-										<h6>Plot</h6>
-										<p>${movie.Plot}<p>
+									<div class="five columns" id="movie-poster">
+										<img alt="${movie.Title}" src="${movie.Poster}" class="thumbnail">	
 									</div>
-									<div class="six columns" id="modal-info">
-										<h3 id="modal-movie-title">${movie.Title}</h3>
+									<div class="five columns" id="modal-info">
+										<h4 id="modal-movie-title">${movie.Title}</h4>
 										<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
 										<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
 										<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
@@ -136,6 +134,17 @@ $(document).ready(function() {
 										<p id="modal-writer"><strong>Production: </strong>${movie.Writer}</p>
 										<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
 										<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
+									</div>
+								</div>
+
+								<div class="row" id="plot-div">
+									<h6 id="plot">Plot Summary</h6>
+									<p>${movie.Plot}<p>
+								</div>
+
+								<div class="row" id="service-icons>
+									<div class="container twelve columns">
+										<img src="https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonInstantVideoIVAGB.png?w=92&auto=compress&app_version=8bc263d1-dd7b-40c0-98cd-f677eb14d81e_e12122020-08-31">
 									</div>
 								</div>
 							</div>
