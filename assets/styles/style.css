@@ -191,6 +191,12 @@ img.thumbnail {
 	font-size: 14px;
 }
 
+#modal-logo {
+	padding: 10px;
+	background-color: #e16428;
+	border-radius: 10px;
+}
+
 #info-tags {
 	margin-left: 0px;
 	margin-right: 0px;
