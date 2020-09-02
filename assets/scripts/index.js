@@ -63,18 +63,34 @@ $(document).ready(function() {
 
 		//Use for-loop to append each movie result
 		$.each(movies, function(index, movie) {
-			// Only display the search results that have movie posters
-			if (movie.Poster !== 'N/A') {
+			
+			// Only display the search results whose images are found 
+			
+			// https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
+			function testImage(URL) {
+				var tester = new Image();
+				tester.onload = imageFound;
+				tester.onerror = imageNotFound;
+				tester.src = URL;
+			}
+			
+			function imageFound() {
 				//Set HTML structure and assign to a variable
-				moviesOutput += `
+				moviesOutput = `
 					<div class="movie-card movie-details">
 						<img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}" alt="${movie.Title}. Click to view movie details">
 					</div>
 			`;
+				//Append the movie result to HTML movie-display <div>
+				$('#movie-display').append(moviesOutput);
 			}
+
+			function imageNotFound() {
+				console.log('That image was not found.');
+			}
+
+			testImage(movie.Poster);
 		});
-		//Append the movie result to HTML movie-display <div>
-		$('#movie-display').append(moviesOutput);
 
 		//Empty user input field after rendering search result
 		userInput.val('');
