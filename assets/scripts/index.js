@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	/* GLOBAL VARIABLES
 	 ==================================================================================================== */
 
@@ -31,8 +31,8 @@ $(document).ready(function() {
 	======================================================================================================== */
 
 	// GENERATE UTELLY URL
-	function uTellyURL(movieName) {
-		return 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + movieName + '&country=us';
+	function uTellyURL(movieID) {
+		return `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id=${movieID}&source=imdb`;
 	}
 
 	// OMDB INFORMATION AND CALL
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 	function omdbQuery() {
 		let omdbEndPoint = omdbAPI(userInput.val().trim());
-		$.ajax(omdbEndPoint).then(omdbMovieResult).catch(function(err) {
+		$.ajax(omdbEndPoint).then(omdbMovieResult).catch(function (err) {
 			console.log(err);
 		});
 	}
@@ -54,7 +54,7 @@ $(document).ready(function() {
 	// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
 
 	function omdbMovieResult(omdbResponse) {
-		// console.log(omdbResponse);
+		console.log(omdbResponse);
 		$('#movie-display').empty();
 		// save response.search to a variable
 		let movies = omdbResponse.Search;
@@ -62,7 +62,7 @@ $(document).ready(function() {
 		let moviesOutput = '';
 
 		//Use for-loop to append each movie result
-		$.each(movies, function(index, movie) {
+		$.each(movies, function (index, movie) {
 			// Only display the search results that have movie posters
 			if (movie.Poster !== 'N/A') {
 				//Set HTML structure and assign to a variable
@@ -105,7 +105,7 @@ $(document).ready(function() {
 			method: 'GET'
 		})
 			.then(movieDetails)
-			.catch(function(err) {
+			.catch(function (err) {
 				console.log(err);
 			});
 	}
@@ -156,15 +156,12 @@ $(document).ready(function() {
 		$('#modal-container').append(movieDetails);
 
 		// utelly query call
-		let uTellyEndPoint = uTellyURL(movie.Title);
+		let uTellyEndPoint = uTellyURL(movie.imdbID);
 		$.ajax(uTellyEndPoint, settings)
-			.then(function(response) {
+			.then(function (response) {
 				console.log(response);
-				let matches = response.results.filter(function(potentialMatch) {
-					return potentialMatch.name === movie.Title;
-				});
-				if (matches.length === 1 && matches[0].locations.length > 0) {
-					matches[0].locations.forEach(function(streamingLocation) {
+				if (Object.entries(response.collection).length !== 0) {
+					response.collection.locations.forEach(function (streamingLocation) {
 						let liEl = `<li><img id="modal-logo" src="${streamingLocation.icon}"/></li>`;
 						$('#streaming-services').append(liEl);
 					});
@@ -172,14 +169,13 @@ $(document).ready(function() {
 					let liEl = `<li>This movie is not available for streaming</li>`;
 					$('#streaming-services').append(liEl);
 				}
-				console.log(matches);
 			})
-			.catch(function(err) {
+			.catch(function (err) {
 				console.log(err);
 			});
 
 		// When the user clicks on <span> (x), close the modal
-		$('.close').click(function() {
+		$('.close').click(function () {
 			modal.style.display = 'none';
 		});
 	}
@@ -188,7 +184,7 @@ $(document).ready(function() {
 	======================================================================================================== */
 
 	// On click listener for the button to collect the data from omdb and console.log
-	$('#searchBtn').click(function() {
+	$('#searchBtn').click(function () {
 		// Prevent form submisson and page reload
 		event.preventDefault();
 
@@ -206,7 +202,7 @@ $(document).ready(function() {
 	// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW
 
 	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
+	window.onclick = function (event) {
 		if (event.target == modal) {
 			modal.style.display = 'none';
 		}
