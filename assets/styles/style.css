@@ -71,6 +71,8 @@ button {
 }
 
 
+
+
 /* MOVIE SEARCH RESULT DISPLAY */
 
 	/* NOTE : NOT IN USE 
@@ -111,22 +113,6 @@ img.movie-poster:hover {
 	transform: scale(1.2);
 }
 
-/* NOTE: No #movie-title in file #movie-title {
-	text-align: center;
-} */
-
-/* NOTE: No #poster-place in file
-#poster-place {
-	height: 300px;
-	width: auto;
-} */
-
-/* NOTE: no #myBtn in file
-#myBtn {
-	width: 195.22px;
-} */
-
-
 
 /* MODAL STYLING STARTS  */
 
@@ -142,6 +128,7 @@ img.movie-poster:hover {
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0, 0, 0); /* Fallback color */
 	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	padding-top: 100px;
 }
 
 /* Modal Content/Box */
@@ -173,7 +160,6 @@ img.movie-poster:hover {
 	cursor: pointer;
 }
 
-
 #movie-poster {
 	display: block;
 	padding-right: 90px;
@@ -192,10 +178,7 @@ img.thumbnail {
 	margin: 0px 0px 0px 0px;
 	padding-left: 30px;
 	padding-top: 25px;
-	/* border: solid 1px pink; */
-	/* background-color: #363333; */
 	background-color: #161515; 
-	/* border-radius: 15px; */
 }
 
 #modal-box {
@@ -250,17 +233,13 @@ ul#streaming-services li {
 	margin-right: 20px;
 }
 
+
 .save-button {
     float: right;
     padding-top: 45px;
     padding-left: 60px;
 }
 
-/* hr {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 25px;
-} */
 
 /* MODAL STYLINE ENDS HERE  */
 
@@ -410,8 +389,6 @@ main {
 	img.movie-poster{
 		width: 110px;
 		height: 152px;
-	/* margin-right: 12px;
-	margin-bottom: 18px; */
 	}
 	img.thumbnail {
 		width: 130px;
