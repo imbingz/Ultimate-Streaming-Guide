@@ -192,8 +192,7 @@ img.movie-poster:hover {
 }
 
 #modal-box {
-	margin-left: 0px;
-	margin-right: 0px;
+	margin: auto;
 }
 
 p {
