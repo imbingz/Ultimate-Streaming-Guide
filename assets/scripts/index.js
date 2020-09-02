@@ -133,7 +133,6 @@ $(document).ready(function() {
 					<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
 					<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
 					<p id="modal-production"><strong>Production: </strong>${movie.Production}</p>
-					<p id="modal-writer"><strong>Writer: </strong>${movie.Writer}</p>
 					<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
 					<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
 		        </div>
@@ -143,8 +142,13 @@ $(document).ready(function() {
 				<p>${movie.Plot}<p>
 			</div>
 			<div class="row" "service-row">
-				<h6 id="stream-title">Streaming Available at:</h6>
-				<ul id="streaming-services"></ul>
+				<div class="eight columns service-icon">
+					<h6 id="stream-title">Streaming Available at:</h6>
+					<ul id="streaming-services"></ul>
+				</div>
+				<div class="four columns save-button">
+					<input class="button-primary" type="submit" value="submit input">
+				</div>
 			</div>
 		</div>
 		`;
