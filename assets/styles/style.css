@@ -71,6 +71,8 @@ button {
 }
 
 
+
+
 /* MOVIE SEARCH RESULT DISPLAY */
 
 	/* NOTE : NOT IN USE 
@@ -173,7 +175,6 @@ img.movie-poster:hover {
 	cursor: pointer;
 }
 
-
 #movie-poster {
 	display: block;
 	padding-right: 90px;
@@ -241,12 +242,6 @@ ul#streaming-services li {
 	display: inline-block;
 	padding-left: 15px;
 	margin-right: 20px;
-}
-
-hr {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 25px;
 }
 
 /* MODAL STYLINE ENDS HERE  */
