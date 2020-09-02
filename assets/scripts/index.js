@@ -138,7 +138,6 @@ $(document).ready(function() {
 					<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
 		        </div>
 			</div>
-			<hr>
 			<div class="row" id="plot-div">
 				<h6 id="plot">Plot Summary</h6>
 				<p>${movie.Plot}<p>
