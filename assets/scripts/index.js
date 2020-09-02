@@ -92,13 +92,7 @@ $(document).ready(function() {
 		// Get the data-id info for each button clicked
 		let id = $(this).attr('data-id');
 
-		//Save the last selected movieID to local storage
-		localStorage.setItem('movieID', id);
-
-		//get movieID from local Storage
-		let movieID = localStorage.getItem('movieID');
-
-		let idURL = `https://www.omdbapi.com/?i=${movieID}&apikey=dd9cc031`;
+		let idURL = `https://www.omdbapi.com/?i=${id}&apikey=dd9cc031`;
 		console.log(idURL);
 		$.ajax({
 			url: idURL,
@@ -147,7 +141,7 @@ $(document).ready(function() {
 					<ul id="streaming-services"></ul>
 				</div>
 				<div class="four columns save-button">
-					<input class="button-primary" type="submit" value="submit input">
+					<button class="button-primary" id="save-btn">Save Movie</button>
 				</div>
 			</div>
 		</div>
