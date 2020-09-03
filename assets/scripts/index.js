@@ -173,7 +173,8 @@ $(document).ready(function() {
 				console.log(response);
 				if (Object.entries(response.collection).length !== 0) {
 					response.collection.locations.forEach(function(streamingLocation) {
-						let liEl = `<li><img id="modal-logo" src="${streamingLocation.icon}"/></li>`;
+						console.log(streamingLocation)
+						let liEl = `<li><a href="${streamingLocation.url}"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
 						$('#streaming-services').append(liEl);
 					});
 				} else {
