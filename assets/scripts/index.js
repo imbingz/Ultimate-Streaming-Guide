@@ -218,8 +218,8 @@ $(document).ready(function() {
 			title: title
 		});
 
-		// only store the latest 5 saved movies
-		savedMovies.splice(5);
+		// only store the latest 10 saved movies
+		savedMovies.splice(10);
 		console.log(savedMovies);
 		// save the savedMovies variable to local storage
 		localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
