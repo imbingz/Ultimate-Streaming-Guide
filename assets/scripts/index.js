@@ -174,7 +174,7 @@ $(document).ready(function() {
 				if (Object.entries(response.collection).length !== 0) {
 					response.collection.locations.forEach(function(streamingLocation) {
 						console.log(streamingLocation)
-						let liEl = `<li><a href="${streamingLocation.url}"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
+						let liEl = `<li><a href="${streamingLocation.url}" target="_blank"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
 						$('#streaming-services').append(liEl);
 					});
 				} else {
