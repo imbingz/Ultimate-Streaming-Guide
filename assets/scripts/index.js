@@ -253,8 +253,8 @@ $(document).ready(function() {
 			function imageFound() {
 				//Set HTML structure and assign to a variable
 				let moviesOutput = `
-					<div class="movie-card movie-details">
-						<img id="btn-modal" class="movie-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details">
+					<div class="saved-movie-card movie-details">
+						<img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details">
 					</div>
 			`;
 				//Append the movie result to HTML movie-display <div>
