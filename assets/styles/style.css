@@ -215,10 +215,23 @@ img.thumbnail {
 	font-size: 14px;
 }
 
+#save-btn {
+	background-color: #e16428;
+	color: #1f74b6;
+	border: 1px solid #1f74b6;
+}
+
 #modal-logo {
 	padding: 10px;
 	background-color: #e16428;
 	border-radius: 10px;
+}
+
+#modal-logo:hover{
+	/* opacity: ; */
+	transition: 0.5s;
+	transform: scale(1.2);
+	background-color: #1f74b6;
 }
 
 #info-tags {
