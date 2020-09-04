@@ -224,9 +224,13 @@ img.thumbnail {
 	border: 1px solid #1f74b6;
 }
 
+/* #remove-btn {
+	display: none;
+} */
+
 #modal-logo {
 	padding: 10px;
-	background-color: #e16428;
+	background-color: #f6e9e9;
 	border-radius: 10px;
 }
 
