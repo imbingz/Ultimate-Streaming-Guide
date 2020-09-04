@@ -54,7 +54,7 @@ $(document).ready(function() {
 	// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
 
 	function omdbMovieResult(omdbResponse) {
-		console.log(omdbResponse);
+		// console.log(omdbResponse);
 		$('#movie-display').empty();
 		// save response.search to a variable
 		let movies = omdbResponse.Search;
@@ -98,9 +98,6 @@ $(document).ready(function() {
 	// GET MOVIE DETAILS WHEN USER CLICK MOVIE POSTERS
 	$('#movie-display').on('click', 'img', appendToModal);
 
-	// GET MOVIE DETAILS WHEN USER CLICK SAVED MOVIE POSTERS
-	$('#saved-display').on('click', 'img', appendToModal);
-
 	function appendToModal() {
 		modal.style.display = 'block';
 
@@ -120,6 +117,8 @@ $(document).ready(function() {
 				console.log(err);
 			});
 	}
+
+
 
 	// Render movie details to modal
 	function movieDetails(omdbData) {
@@ -170,10 +169,9 @@ $(document).ready(function() {
 		let uTellyEndPoint = uTellyURL(movie.imdbID);
 		$.ajax(uTellyEndPoint, settings)
 			.then(function(response) {
-				console.log(response);
+				// console.log(response);
 				if (Object.entries(response.collection).length !== 0) {
 					response.collection.locations.forEach(function(streamingLocation) {
-						console.log(streamingLocation)
 						let liEl = `<li><a href="${streamingLocation.url}" target="_blank"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
 						$('#streaming-services').append(liEl);
 					});
@@ -220,7 +218,7 @@ $(document).ready(function() {
 
 		// only store the latest 10 saved movies
 		savedMovies.splice(10);
-		console.log(savedMovies);
+
 		// save the savedMovies variable to local storage
 		localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
 
@@ -268,6 +266,60 @@ $(document).ready(function() {
 			testImage(movie.poster);
 		});
 	}
+
+
+	// GET MOVIE DETAILS WHEN USER CLICK SAVED MOVIE POSTERS
+	$('#saved-display').on('click', 'img', savedToModal);
+
+
+	// Append saved movies to modal when clicked
+		function savedToModal() {
+		modal.style.display = 'block';
+
+		$('#modal-container').empty();
+			
+		// Get the data-id info for each button clicked
+		let id = $(this).attr('data-id');
+		
+		// Add a remove button when users  save a movie 
+			let removeBtn = $("<button>").attr("id", "remove-btn")
+			removeBtn.text('REMOVE')
+			$('#modal-container').append(removeBtn)
+
+			removeBtn.on('click', function() {
+
+				//Remove the image from DOM
+				// $(this).detach();
+				$(this).remove();
+
+				//assign data in localstorage to a varialbe
+				const savedMovieStr = localStorage.getItem('saved-movies');
+
+				// set a variable and check if any existing data in localstorage
+				let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
+
+				// Remove the image from local storage array 
+				savedMovies = savedMovies.filter(function(movie) {
+					return movie.id !== id;
+				});
+				
+
+				// save the new array to local storage
+				localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
+			})
+			
+		let idURL = `https://www.omdbapi.com/?i=${id}&apikey=dd9cc031`;
+	
+		$.ajax({
+			url: idURL,
+			method: 'GET'
+		})
+			.then(movieDetails)
+			.catch(function(err) {
+				console.log(err);
+			});
+	}
+
 
 	/* EVENT HANDLERS 
 	======================================================================================================== */
