@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	/* GLOBAL VARIABLES
 	 ==================================================================================================== */
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 	function omdbQuery() {
 		let omdbEndPoint = omdbAPI(userInput.val().trim());
-		$.ajax(omdbEndPoint).then(omdbMovieResult).catch(function(err) {
+		$.ajax(omdbEndPoint).then(omdbMovieResult).catch(function (err) {
 			console.log(err);
 		});
 	}
@@ -62,7 +62,7 @@ $(document).ready(function() {
 		let moviesOutput = '';
 
 		//Use for-loop to append each movie result
-		$.each(movies, function(index, movie) {
+		$.each(movies, function (index, movie) {
 			// Only display the search results whose images are found
 
 			// https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
@@ -113,7 +113,7 @@ $(document).ready(function() {
 			method: 'GET'
 		})
 			.then(movieDetails)
-			.catch(function(err) {
+			.catch(function (err) {
 				console.log(err);
 			});
 	}
@@ -125,6 +125,12 @@ $(document).ready(function() {
 		// console.log(omdbData);
 		let movie = omdbData;
 		//HTML modal structure
+		let removeBtn = ""
+		let temp = JSON.parse(localStorage.getItem("saved-movies"));
+		if (temp.find(mov => mov.id === omdbData.imdbID)) {
+			removeBtn = `<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>`
+		}
+
 		let movieDetails = `	
 		<div>
 		   <span class="close">&times;</span>
@@ -158,6 +164,7 @@ $(document).ready(function() {
 				</div>
 				<div class="four columns save-button">
 					<button class="button-primary" id="save-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}">Save Movie</button>
+					${removeBtn}
 				</div>
 			</div>
 		</div>
@@ -168,10 +175,10 @@ $(document).ready(function() {
 		// utelly query call
 		let uTellyEndPoint = uTellyURL(movie.imdbID);
 		$.ajax(uTellyEndPoint, settings)
-			.then(function(response) {
+			.then(function (response) {
 				// console.log(response);
 				if (Object.entries(response.collection).length !== 0) {
-					response.collection.locations.forEach(function(streamingLocation) {
+					response.collection.locations.forEach(function (streamingLocation) {
 						let liEl = `<li><a href="${streamingLocation.url}" target="_blank"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
 						$('#streaming-services').append(liEl);
 					});
@@ -180,19 +187,19 @@ $(document).ready(function() {
 					$('#streaming-services').append(liEl);
 				}
 			})
-			.catch(function(err) {
+			.catch(function (err) {
 				console.log(err);
 			});
 
 		// When the user clicks on <span> (x), close the modal
-		$('.close').click(function() {
+		$('.close').click(function () {
 			modal.style.display = 'none';
 		});
 	}
 
 	// STORE SAVED MOVIES TO LOCALSTORAGE WHEN USERS CLICK SAVE-BTN
 
-	$('#modal-container').on('click', '#save-btn', function() {
+	$('#modal-container').on('click', '#save-btn', function () {
 		// get movie info and assign to variables
 		let id = $(this).attr('data-imdbID');
 		let poster = $(this).attr('data-poster');
@@ -205,7 +212,7 @@ $(document).ready(function() {
 		let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
 
 		// filter only movie that is not duplicated with existing stored data
-		savedMovies = savedMovies.filter(function(movie) {
+		savedMovies = savedMovies.filter(function (movie) {
 			return movie.id !== id;
 		});
 
@@ -237,7 +244,7 @@ $(document).ready(function() {
 		if (!savedMovies.length) return;
 
 		//Use for-loop to append each movie result
-		$.each(savedMovies, function(index, movie) {
+		$.each(savedMovies, function (index, movie) {
 			// Only display the search results whose images are found
 
 			// https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
@@ -251,8 +258,9 @@ $(document).ready(function() {
 			function imageFound() {
 				//Set HTML structure and assign to a variable
 				let moviesOutput = `
+					
 					<div class="saved-movie-card movie-details">
-						<img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details">
+						<img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details"</img>
 					</div>
 			`;
 				//Append the movie result to HTML movie-display <div>
@@ -271,51 +279,55 @@ $(document).ready(function() {
 	// GET MOVIE DETAILS WHEN USER CLICK SAVED MOVIE POSTERS
 	$('#saved-display').on('click', 'img', savedToModal);
 
+	function removeMovie() {
+		console.log("Clickety Clackety")
+		//Remove the image from DOM
+		// $(this).detach();
+		$(this).remove();
+
+		//assign data in localstorage to a varialbe
+		const savedMovieStr = localStorage.getItem('saved-movies');
+
+		// set a variable and check if any existing data in localstorage
+		let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
+
+		// Remove the image from local storage array 
+		savedMovies = savedMovies.filter(function (movie) {
+			return movie.id !== id;
+		});
+
+
+		// save the new array to local storage
+		localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
+		modal.style.display = 'none';
+		renderSavedMovies();
+	};
 
 	// Append saved movies to modal when clicked
-		function savedToModal() {
+	function savedToModal() {
+		$("#remove-btn").css("display", "block")
+		console.log($("#remove-btn").attr("id"))
 		modal.style.display = 'block';
+		console.log("Image Click To Open Modal")
 
 		$('#modal-container').empty();
-			
-		// Get the data-id info for each button clicked
+
 		let id = $(this).attr('data-id');
+		console.log($("#remove-btn"))
+
+		$('#saved-display').on('click', '#remove-btn', removeMovie);
+
 		
-		// Add a remove button when users  save a movie 
-			let removeBtn = $("<button>").attr("id", "remove-btn")
-			removeBtn.text('REMOVE')
-			$('#modal-container').append(removeBtn)
+		// Get the data-id info for each button clicked
 
-			removeBtn.on('click', function() {
-
-				//Remove the image from DOM
-				// $(this).detach();
-				$(this).remove();
-
-				//assign data in localstorage to a varialbe
-				const savedMovieStr = localStorage.getItem('saved-movies');
-
-				// set a variable and check if any existing data in localstorage
-				let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
-
-				// Remove the image from local storage array 
-				savedMovies = savedMovies.filter(function(movie) {
-					return movie.id !== id;
-				});
-				
-
-				// save the new array to local storage
-				localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
-			})
-			
 		let idURL = `https://www.omdbapi.com/?i=${id}&apikey=dd9cc031`;
-	
+
 		$.ajax({
 			url: idURL,
 			method: 'GET'
 		})
 			.then(movieDetails)
-			.catch(function(err) {
+			.catch(function (err) {
 				console.log(err);
 			});
 	}
@@ -325,7 +337,7 @@ $(document).ready(function() {
 	======================================================================================================== */
 
 	// On click listener for the button to collect the data from omdb and console.log
-	$('#searchBtn').click(function() {
+	$('#searchBtn').click(function () {
 		// Prevent form submisson and page reload
 		event.preventDefault();
 
@@ -343,7 +355,7 @@ $(document).ready(function() {
 	// * NOTE: THE MODAL CLICK FUNCTION IS IN appenToModal FUNC NOW
 
 	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
+	window.onclick = function (event) {
 		if (event.target == modal) {
 			modal.style.display = 'none';
 		}

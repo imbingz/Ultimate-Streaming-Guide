@@ -130,6 +130,71 @@
 
   <!--    JAVASCRIPT LINK     -->
   <script src="./assets/scripts/index.js"></script>
+  <script>
+    function removeMovie() {
+      console.log("Clickety Clackety")
+      let id = $("#remove-btn").attr("data-imdbID")
+			//Remove the image from DOM
+			// $(this).detach();
+			$("#remove-btn").remove();
+
+			//assign data in localstorage to a varialbe
+			let savedMovieStr = localStorage.getItem('saved-movies');
+			// set a variable and check if any existing data in localstorage
+			let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
+      // console.log(savedMovies)
+      console.log(id)
+
+			// Remove the image from local storage array 
+			savedMovies = savedMovies.filter(function (movie) {
+				return movie.id !== id;
+			});
+
+
+			// save the new array to local storage
+			localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
+			$("#myModal").css("display", "none");
+      
+      //clear output area first
+		$('#saved-display').empty();
+
+savedMovieStr = localStorage.getItem('saved-movies');
+savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
+//if no data in savedMovies, return early
+if (!savedMovies.length) return;
+
+//Use for-loop to append each movie result
+$.each(savedMovies, function (index, movie) {
+  // Only display the search results whose images are found
+
+  // https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
+  function testImage(URL) {
+    var tester = new Image();
+    tester.onload = imageFound;
+    tester.onerror = imageNotFound;
+    tester.src = URL;
+  }
+
+  function imageFound() {
+    //Set HTML structure and assign to a variable
+    let moviesOutput = `
+      
+      <div class="saved-movie-card movie-details">
+        <img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details"</img>
+      </div>
+  `;
+    //Append the movie result to HTML movie-display <div>
+    $('#saved-display').append(moviesOutput);
+  }
+
+  function imageNotFound() {
+    console.log('That image was not found.');
+  }
+
+  testImage(movie.poster);
+});
+		};
+  </script>
 </body>
 
 </html>
