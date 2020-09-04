@@ -10,6 +10,7 @@ COLORS:#f6e9e9; rgb(238, 236, 236); #888; #616161 #363333;   #272121; rgba(0, 0,
 	padding: 0;
 }
 
+
 body {
 	/* Top 3 for sticky Footer */
 	display: flex;
@@ -24,6 +25,20 @@ body {
 	height: 4%;
 	width: 4%;
 	float: left;
+}
+
+#streaming-logo {
+	color: #1f74b6;
+	font: roboto;
+	/* font-weight: bold; */
+	font-style: italic;
+}
+
+#guide-logo {
+	color: #e16428;
+	font: roboto;
+	font-weight: bold;
+	font-style: italic;
 }
 
 #header {
@@ -85,7 +100,7 @@ button {
 	display: flex;
 	flex-flow: row wrap;
 	width: 100vw;
-	max-width: 1200px;
+	max-width: 960px;
 	/* justify-content: space-between; */
 }
 
