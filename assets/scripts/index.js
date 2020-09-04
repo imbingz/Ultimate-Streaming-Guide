@@ -127,7 +127,7 @@ $(document).ready(function () {
 		//HTML modal structure
 		let removeBtn = ""
 		let temp = JSON.parse(localStorage.getItem("saved-movies"));
-		if (temp.find(mov => mov.id === omdbData.imdbID)) {
+		if (temp && temp.find(mov => mov.id === omdbData.imdbID)) {
 			removeBtn = `<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>`
 		}
 
