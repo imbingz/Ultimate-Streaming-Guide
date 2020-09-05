@@ -52,10 +52,12 @@ SO THAT I can save time and quickly find what I want.<br>
 
 #### Screenshots - Mobile View
 <kbd>![screenshot-mobile](./assets/images/m1.png)</kbd>
+<kbd>![screenshot-mobile](./assets/images/m2.png)</kbd>
+<kbd>![screenshot-mobile](./assets/images/m3.png)</kbd>
 
 ####  Screenshots - Laptop view 
 <kbd>![screenshot-laptop](./assets/images/s1.png)</kbd>
-
+<kbd>![screenshot-laptop](./assets/images/s2.png)</kbd>
 
 
 <a name="Installation"></a>
@@ -81,6 +83,8 @@ SO THAT I can save time and quickly find what I want.<br>
 * [Visual Studio Code](https://code.visualstudio.com/)<br>
 *[Favicon Used](https://freepngimg.com/png/18709-television-free-download-png/icon)<br>
 *[Color Palette](https://colorhunt.co/)<br>
+* [Detect When an Image Fails to Load](// https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript)
+* 
 
 
 
@@ -91,7 +95,9 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="wireframe"></a>
 ### 9. Project Wireframe
-<kbd>![Mockup](./assets/images/project-plan.png)</kbd>
+<kbd>![Mockup](./assets/images/p1.png)</kbd>
+<kbd>![Mockup](./assets/images/p2.png)</kbd>
+<kbd>![Mockup](./assets/images/p3.png)</kbd>
 
 <a name="License"></a>
 ### 10. License
