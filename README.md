@@ -107,6 +107,10 @@ This project will not be completed as is without the help, advice and guidance f
 <kbd>![Mockup](./assets/images/p1.png)</kbd>
 <kbd>![Mockup](./assets/images/p2.png)</kbd>
 <kbd>![Mockup](./assets/images/p3.png)</kbd>
+<kbd>![Mockup](./assets/images/p4.png)</kbd>
+<kbd>![Mockup](./assets/images/p5.png)</kbd>
+<kbd>![Mockup](./assets/images/p6.png)</kbd>
+
 
 <a name="License"></a>
 ### 10. License
