@@ -43,7 +43,7 @@ SO THAT I can save time and quickly find what I want.<br>
 <a name = "Outcome"></a>
 ### 4. Outcome
 * The user interface is responsive to different devices - mobile, tablets, laptops and larger screen desktops
-* The app is dynamic and functional with for both movie and TV shows. 
+* The app is dynamic and functional with both movie and TV shows. 
 * Users can click the streaming logos to watch the movies. 
 * Users can save movies and see their saved movies displayed even after refresh.
 * Users can also remove saved movies from both saved movie display area as well as localStorage. 
@@ -74,7 +74,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="Credits"></a>
 ### 7. Credits:
-This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Christoper Sanner. The following resources  also contribute to this project. The last but not least, our awesome team members and synergy among us surely helped get this project done magically. 
+This project would not be complete without the help, advice, and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Christoper Sanner. The following resources also contribute to this project. The last but not least, our awesome team members and synergy among us surely helped get this project done magically. 
 
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
