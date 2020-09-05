@@ -21,11 +21,6 @@ body {
 }
 
 /* Heading area */
-#logo {
-	height: 4%;
-	width: 4%;
-	float: left;
-}
 
 #streaming-logo {
 	color: #1f74b6;
@@ -80,10 +75,17 @@ h1 {
 	font-size: 1.1rem;
 }
 
-button {
+#searchBtn {
 	background-color: #e16428;
 	color: #1f74b6;
 	border: 1px solid #1f74b6;
+}
+
+#searchBtn:hover {
+	transition: 0.5s;
+	background-color: #f56d2e;
+	color: #2689d4;
+	border: 1px solid #2689d4;
 }
 
 /* MOVIE SEARCH RESULT DISPLAY */
@@ -101,7 +103,7 @@ button {
 	flex-flow: row wrap;
 	width: 100vw;
 	max-width: 960px;
-	/* justify-content: space-between; */
+	justify-content: center;
 }
 
 div.movie-card {
@@ -239,9 +241,26 @@ img.thumbnail {
 	border: 1px solid #1f74b6;
 }
 
-/* #remove-btn {
-	display: none;
-} */
+#save-btn:hover {
+	transition: 0.5s;
+	background-color: #f56d2e;
+	color: #2689d4;
+	border: 1px solid #2689d4;
+}
+
+#remove-btn {
+	background-color: #e16428;
+	color: #1f74b6;
+	border: 1px solid #1f74b6;
+	width: 139.66px;
+}
+
+#remove-btn:hover {
+	transition: 0.5s;
+	background-color: #f56d2e;
+	color: #2689d4;
+	border: 1px solid #2689d4;
+}
 
 #modal-logo {
 	padding: 10px;
@@ -308,7 +327,7 @@ ul#streaming-services li {
 /* Sticky Footer Styling */
 main {
 	flex: 1 0 auto;
-	margin: 0 10px;
+	/* margin: 0 10px; */
 }
 
 .copyright {
