@@ -74,7 +74,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="Credits"></a>
 ### 7. Credits:
-This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TA's @fkakatie 
+This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Chris Saner. The following resources  also contribute to this project. The last but not least, our awesome team members and synergy among us. Things get done magically when everyone is happy and wants to do more. 
 
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
@@ -92,7 +92,7 @@ This project will not be completed as is without the help, advice and guidance f
 <a name="learned"></a>
 ### 8. Challenges & What We've Learned
 [Layne Hansen]@LayneHansen
-Layne: Often the biggest struggle is making adjustments to changes on the page. When a new element is added, other elements need to be changed to accommodate the change. Most specifically, getting the button the removes movies from the search scroll was very difficult.
+* Often the biggest struggle is making adjustments to changes on the page. When a new element is added, other elements need to be changed to accommodate the change. Most specifically, getting the button the removes movies from the search scroll was very difficult.
 
 [Bing Zhang]@imbingz
 * Adding event handler to dynamically generated elements is one of the most challenging tasks through this project. Since we appended block of HTML elements together instead of generating each of them one at time, many times the event handler added to the button return as unfound elements. Using event delegation solved most of this kind of issue. As for the remove-movie button, we tried all possible solutions we could think of and still could not add the event handler to the button, so, we added “onclick” attribute to the element when we generated it and had to move the click function script to HTML. It does not look pretty, but it worked. 
