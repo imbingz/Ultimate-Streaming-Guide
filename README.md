@@ -43,7 +43,7 @@ SO THAT I can save time and quickly find what I want.<br>
 <a name = "Outcome"></a>
 ### 4. Outcome
 * The user interface is responsive to different devices - mobile, tablets, laptops and larger screen desktops
-* The app is dynamic and functional with for both movie and TV shows. 
+* The app is dynamic and functional with both movie and TV shows. 
 * Users can click the streaming logos to watch the movies. 
 * Users can save movies and see their saved movies displayed even after refresh.
 * Users can also remove saved movies from both saved movie display area as well as localStorage. 
