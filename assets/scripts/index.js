@@ -119,7 +119,9 @@ $(document).ready(function () {
 		let removeBtn = ""
 		let temp = JSON.parse(localStorage.getItem("saved-movies"));
 		if (temp && temp.find(mov => mov.id === omdbData.imdbID)) {
-			removeBtn = `<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>`
+			removeBtn = `
+			<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>
+			`
 		}
 
 		let movieDetails = `	
