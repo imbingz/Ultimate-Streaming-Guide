@@ -11,9 +11,6 @@
   <meta name="description"
     content="Your ultimate one-stop movie and TV shows streaming guide. Browse, search and play from over 50 popular streaming sources. ">
 
-  <meta name="description"
-    content="Your ultimate one-stop movie and TV shows streaming guide. Browse, search and play from over 50 popular streaming sources. ">
-
   <!-- Linking Skeleton CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
     integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
@@ -34,15 +31,12 @@
   <header>
     <div class="row">
       <h1 id="header"> 
-        <!-- <span><img id="logo" src="assets/images/TheChosenOne.png" alt="Ultimate Streaming Guide Logo"> -->
         <span id="streaming-logo">Streaming</span><span id="guide-logo">GUIDE</span></h1>
     </div>
   </header>
 
   <!-- MAIN  -->
   <main>
-
-
 
     <div class="container">
 
@@ -56,40 +50,18 @@
 
       <!-- SAVED MOVIES APPEAR HERE  -->
       <div class="row slider-row" >
-        <div id="saved-display">
-      
-        </div>
-        
-          
+        <div id="saved-display"></div>
       </div>
 
-      <!-- *NOTE: GOT RID OF THIS CONTAINER FOR CSS STYLING  -->
-      <!-- <div class="container movie-display-container"> -->
+      <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
+      <div class="row" id="movie-display"></div>
+           
 
-        <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
-        <div class="row" id="movie-display">
-          <!-- <img id="poster-place" src=""> -->
-        </div>
-
-        <!-- * NOTE: Deleted movie-display-container div ABOVE.deleted "three columns" class and "movie-item" id attr-->
-
-        <!-- *NOTE---BELOW ARE THE CODES MODIFIED IN JS -- -->
-
-        <!-- moviesOutput += `
-        <div class="three columns" id="movie-item">
-          <div class="movie-card movie-details">
-            <img id="btn-modal" class="movie-poster" src="${movie.Poster}" data-id="${movie.imdbID}"
-              alt="${movie.Title}. Click to view movie details">
-          </div>
-        </div> -->
-
-      </div> <!-- MOVIE DISPLAY CONTAINER ENDS HERE-->
+    </div> <!-- MOVIE DISPLAY CONTAINER ENDS HERE-->
 
 
-    </div> <!--CONTAINER DIV ENDS HERE-->
 
-
-    <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
+    <!--  MOVE DETAIL MODAL STARTS  -->
     <div class="row movies">
 
       <!-- MODAL SECTION  -->
@@ -110,9 +82,6 @@
       </div> <!-- MODAL DIV ENDS HERE-->
 
     </div>
-
-
-    </div> <!-- CONTAINER DIV ENDS HERE-->
 
   </main>
 
@@ -135,7 +104,6 @@
   <!--    Remove movie function   -->
   <script>
     function removeMovie() {
-      console.log("Clickety Clackety")
       let id = $("#remove-btn").attr("data-imdbID")
 			//Remove the image from DOM
 			// $(this).detach();
@@ -145,56 +113,53 @@
 			let savedMovieStr = localStorage.getItem('saved-movies');
 			// set a variable and check if any existing data in localstorage
 			let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
-      // console.log(savedMovies)
-      console.log(id)
-
+     
 			// Remove the image from local storage array 
 			savedMovies = savedMovies.filter(function (movie) {
 				return movie.id !== id;
 			});
 
-
 			// save the new array to local storage
 			localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
 			$("#myModal").css("display", "none");
       
-      //clear output area first
-		$('#saved-display').empty();
+        //clear output area first
+      $('#saved-display').empty();
 
-savedMovieStr = localStorage.getItem('saved-movies');
-savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
-//if no data in savedMovies, return early
-if (!savedMovies.length) return;
+      savedMovieStr = localStorage.getItem('saved-movies');
+      savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
+      //if no data in savedMovies, return early
+      if (!savedMovies.length) return;
 
-//Use for-loop to append each movie result
-$.each(savedMovies, function (index, movie) {
-  // Only display the search results whose images are found
+      //Use for-loop to append each movie result
+      $.each(savedMovies, function (index, movie) {
+        // Only display the search results whose images are found
 
-  // https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
-  function testImage(URL) {
-    var tester = new Image();
-    tester.onload = imageFound;
-    tester.onerror = imageNotFound;
-    tester.src = URL;
-  }
+        // https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript
+        function testImage(URL) {
+          var tester = new Image();
+          tester.onload = imageFound;
+          tester.onerror = imageNotFound;
+          tester.src = URL;
+        }
 
-  function imageFound() {
-    //Set HTML structure and assign to a variable
-    let moviesOutput = `
-      
-      <div class="saved-movie-card movie-details">
-        <img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details"</img>
-      </div>
-  `;
-    //Append the movie result to HTML movie-display <div>
-    $('#saved-display').append(moviesOutput);
-  }
+      function imageFound() {
+        //Set HTML structure and assign to a variable
+        let moviesOutput = `
+          
+          <div class="saved-movie-card movie-details">
+            <img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details"</img>
+          </div>
+      `;
+        //Append the movie result to HTML movie-display <div>
+        $('#saved-display').append(moviesOutput);
+      }
 
-  function imageNotFound() {
-    console.log('That image was not found.');
-  }
+      function imageNotFound() {
+        console.log('That image was not found.');
+      }
 
-  testImage(movie.poster);
+      testImage(movie.poster);
 });
 		};
   </script>
