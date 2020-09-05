@@ -109,7 +109,11 @@ This project would not be complete without the help, advice, and guidance from o
 
 
 <a name="wireframe"></a>
-### 9. Project Wireframe
+### 9. Project Wireframe and schedule tracking sheet
+
+* [Project Schedule Tracking](https://docs.google.com/spreadsheets/d/1faP66GyLyMZDgYyrHZVNm4TkaUMK4PL7aBFnHedymZI/edit?usp=sharing)
+
+* Project Wireframe
 <kbd>![Mockup](./assets/images/p1.png)</kbd>
 <kbd>![Mockup](./assets/images/p2.png)</kbd>
 <kbd>![Mockup](./assets/images/p3.png)</kbd>
