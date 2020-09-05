@@ -128,7 +128,7 @@ img.movie-poster:hover {
 }
 
 #saved-display::-webkit-scrollbar {
-	height: 2vw;
+	height: 1.2vw;
 	background-color: #e16428;
 	border: 1 solid #e16428;
 	border-radius: 25px;
@@ -337,6 +337,10 @@ footer {
 		padding: 20px;
 	}
 
+	#saved-display::-webkit-scrollbar {
+		height: 1.5vw;
+	}
+
 	div.movie-card {
 		width: 220px;
 		margin: 1.5vw;
@@ -384,6 +388,10 @@ footer {
 @media screen and (max-width: 875px) {
 	h1 {
 		font-size: 4.5rem;
+	}
+
+	#saved-display::-webkit-scrollbar {
+		height: 1.6vw;
 	}
 
 	div.movie-card {
