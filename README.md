@@ -74,7 +74,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="Credits"></a>
 ### 7. Credits:
-This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Christoper Sanner. The following resources  also contribute to this project. The last but not least, our awesome team members and synergy among us surely helped get this project done magically. 
+This project would not be complete without the help, advice, and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Christoper Sanner. The following resources also contribute to this project. The last but not least, our awesome team members and synergy among us surely helped get this project done magically. 
 
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
