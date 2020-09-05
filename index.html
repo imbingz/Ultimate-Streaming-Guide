@@ -30,7 +30,7 @@
   <!-- HEADER  -->
   <header>
     <div class="row">
-      <h1 id="header"> 
+      <h1 id="header">
         <span id="streaming-logo">Streaming</span><span id="guide-logo">GUIDE</span></h1>
     </div>
   </header>
@@ -49,13 +49,12 @@
       </div>
 
       <!-- SAVED MOVIES APPEAR HERE  -->
-      <div class="row slider-row" >
+      <div class="row slider-row">
         <div id="saved-display"></div>
       </div>
 
       <!-- MOVIE SEARCH RESULT APPEARS HERE  -->
       <div class="row" id="movie-display"></div>
-           
 
     </div> <!-- MOVIE DISPLAY CONTAINER ENDS HERE-->
 
@@ -68,15 +67,12 @@
 
       <div id="modal-div">
 
-        <!-- <button id="btn">Movie Details</button> -->
-
         <!-- The Modal -->
         <div id="myModal" class="modal">
 
           <!-- Modal content -->
-
           <div class="modal-content" id="modal-container"></div>
-          <!--<p id="modal-writer"><strong>Writer: </strong>${movie.Writer}</p>  from js file--> 
+
         </div>
 
       </div> <!-- MODAL DIV ENDS HERE-->
@@ -105,25 +101,25 @@
   <script>
     function removeMovie() {
       let id = $("#remove-btn").attr("data-imdbID")
-			//Remove the image from DOM
-			// $(this).detach();
-			$("#remove-btn").remove();
+      //Remove the image from DOM
+      // $(this).detach();
+      $("#remove-btn").remove();
 
-			//assign data in localstorage to a varialbe
-			let savedMovieStr = localStorage.getItem('saved-movies');
-			// set a variable and check if any existing data in localstorage
-			let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
-     
-			// Remove the image from local storage array 
-			savedMovies = savedMovies.filter(function (movie) {
-				return movie.id !== id;
-			});
+      //assign data in localstorage to a varialbe
+      let savedMovieStr = localStorage.getItem('saved-movies');
+      // set a variable and check if any existing data in localstorage
+      let savedMovies = savedMovieStr ? JSON.parse(savedMovieStr) : [];
 
-			// save the new array to local storage
-			localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
-			$("#myModal").css("display", "none");
-      
-        //clear output area first
+      // Remove the image from local storage array 
+      savedMovies = savedMovies.filter(function (movie) {
+        return movie.id !== id;
+      });
+
+      // save the new array to local storage
+      localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
+      $("#myModal").css("display", "none");
+
+      //clear output area first
       $('#saved-display').empty();
 
       savedMovieStr = localStorage.getItem('saved-movies');
@@ -143,25 +139,25 @@
           tester.src = URL;
         }
 
-      function imageFound() {
-        //Set HTML structure and assign to a variable
-        let moviesOutput = `
+        function imageFound() {
+          //Set HTML structure and assign to a variable
+          let moviesOutput = `
           
           <div class="saved-movie-card movie-details">
             <img id="btn-modal" class="saved-poster" src="${movie.poster}" data-id="${movie.id}" alt="${movie.title}. Click to view movie details"</img>
           </div>
       `;
-        //Append the movie result to HTML movie-display <div>
-        $('#saved-display').append(moviesOutput);
-      }
+          //Append the movie result to HTML movie-display <div>
+          $('#saved-display').append(moviesOutput);
+        }
 
-      function imageNotFound() {
-        console.log('That image was not found.');
-      }
+        function imageNotFound() {
+          console.log('That image was not found.');
+        }
 
-      testImage(movie.poster);
-});
-		};
+        testImage(movie.poster);
+      });
+    };
   </script>
 </body>
 
