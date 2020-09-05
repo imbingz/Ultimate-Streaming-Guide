@@ -128,7 +128,7 @@ img.movie-poster:hover {
 }
 
 #saved-display::-webkit-scrollbar {
-	height: 2vw;
+	height: 1.2vw;
 	background-color: #e16428;
 	border: 1 solid #e16428;
 	border-radius: 25px;
@@ -337,6 +337,10 @@ footer {
 		padding: 20px;
 	}
 
+	#saved-display::-webkit-scrollbar {
+		height: 1.5vw;
+	}
+
 	div.movie-card {
 		width: 220px;
 		margin: 1.5vw;
@@ -384,6 +388,10 @@ footer {
 @media screen and (max-width: 875px) {
 	h1 {
 		font-size: 4.5rem;
+	}
+
+	#saved-display::-webkit-scrollbar {
+		height: 1.6vw;
 	}
 
 	div.movie-card {
@@ -521,8 +529,18 @@ footer {
 	}
 
 	div.movie-card {
-		width: 110px;
-		margin: 3vw;
+		width: 100px;
+		margin: 4vw;
+	}
+
+	img.movie-poster {
+		width: 100px;
+		height: 140px;
+	}
+
+	img.saved-poster {
+		width: 90px;
+		height: 125px;
 	}
 
 	.save-button {
@@ -535,5 +553,25 @@ footer {
 	#remove-btn {
 		margin-bottom: 15px;
 		padding: 0 20px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	#movie-display {
+		padding-left: 8vw;
+	}
+	div.movie-card {
+		width: 95px;
+		margin: 2vw;
+	}
+
+	img.movie-poster {
+		width: 95px;
+		height: 132px;
+	}
+
+	img.saved-poster {
+		width: 80px;
+		height: 110px;
 	}
 }
