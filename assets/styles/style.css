@@ -230,7 +230,7 @@ img.thumbnail {
 #save-btn {
 	background-color: #e16428;
 	color: #f6e9e9;
-	border: 1px solid #1f74b6;
+	border: 1px solid #e16428;
 	padding: 0 18px;
 	margin-right: 10px;
 }
@@ -239,18 +239,17 @@ img.thumbnail {
 	transition: 0.5s;
 	background-color: #f56d2e;
 	color: #2689d4;
-	border: 1px solid #2689d4;
 }
 
-/* #remove-btn {
-	width: 139.66px;
-} */
+#remove-btn {
+	background-color: #1f74b6;
+	border: 1px solid #1f74b6;
+}
 
 #remove-btn:hover {
 	transition: 0.5s;
 	background-color: #2689d4;
 	color: #f56d2e;
-	border: 1px solid #2689d4;
 }
 
 #modal-logo {
@@ -320,7 +319,7 @@ main {
 }
 
 footer {
-	background-color: #161515;
+	background-color: #2b2828;
 }
 .copyright {
 	color: #888;
@@ -338,7 +337,7 @@ footer {
 	}
 
 	#saved-display::-webkit-scrollbar {
-		height: 1.5vw;
+		height: 1vw;
 	}
 
 	div.movie-card {
