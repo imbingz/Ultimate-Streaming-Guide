@@ -25,7 +25,6 @@ https://imbingz.github.io/Ultimate-Streaming-Guide/
 https://github.com/imbingz/Ultimate-Streaming-Guide
 
 
-
 <a name = "context"></a>
 ### 2. Project Context - User Story
 AS A Movieholic <br>
@@ -44,8 +43,10 @@ SO THAT I can save time and quickly find what I want.<br>
 <a name = "Outcome"></a>
 ### 4. Outcome
 * The user interface is responsive to different devices - mobile, tablets, laptops and larger screen desktops
-* The app is dynamic and functional with user search parameters. 
-<!-- * Utilized Local Storage to save user search histories.  -->
+* The app is dynamic and functional with for both movie and TV shows. 
+* Users can click the streaming logos to watch the movies. 
+* Users can save movies and see their saved movies displayed even after refresh.
+* Users can also remove saved movies from both saved movie display area as well as localStorage. 
 
 <a name="Screenshots"></a>
 ### 5. Screenshots 
@@ -73,6 +74,8 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="Credits"></a>
 ### 7. Credits:
+This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TA's @fkakatie 
+
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
 * [Skeleton CSS](http://getskeleton.com/)
@@ -84,14 +87,19 @@ SO THAT I can save time and quickly find what I want.<br>
 * [Favicon Used](https://freepngimg.com/png/18709-television-free-download-png/icon)<br>
 * [Color Palette](https://colorhunt.co/)<br>
 * [Detect When an Image Fails to Load](https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript)
-* 
-
-
 
 
 <a name="learned"></a>
 ### 8. Challenges & What We've Learned
-* 
+[Layne Hansen]@LayneHansen
+Layne: Often the biggest struggle is making adjustments to changes on the page. When a new element is added, other elements need to be changed to accommodate the change. Most specifically, getting the button the removes movies from the search scroll was very difficult.
+
+[Bing Zhang]@imbingz
+* Adding event handler to dynamically generated elements is one of the most challenging tasks through this project. Since we appended block of HTML elements together instead of generating each of them one at time, many times the event handler added to the button return as unfound elements. Using event delegation solved most of this kind of issue. As for the remove-movie button, we tried all possible solutions we could think of and still could not add the event handler to the button, so, we added “onclick” attribute to the element when we generated it and had to move the click function script to HTML. It does not look pretty, but it worked. 
+* Saving the right data to localStorage each time when a user click the save-movie button was also more complicated than I originally anticipated, because each image has its id, src and alt with movie title. The best way i found is to add those attributes to the button, and create an array of objects with properties id, src and title. So, each time, the user click save-movie button, the button will collect the right info to store. 
+* Using branches and collaborating with others on github was quite challenging for me. I certainly did not push as often as I usually do in the solo projects. However, I also learnt how important is good communication among team. A clear delegation of task certainly helped reduce the number of merge conflicts. 
+* What I enjoyed most during this project is working with my team mates @@LayneHansen and @MrCartree. I love the synergy among us and everything seems to be a breeze even when we did have an immediate solution but we just knew we would get the tasks done. Happiness solves all problems. 
+
 
 <a name="wireframe"></a>
 ### 9. Project Wireframe
