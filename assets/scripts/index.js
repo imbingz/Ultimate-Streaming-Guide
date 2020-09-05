@@ -123,7 +123,8 @@ $(document).ready(function () {
 		let removeBtn = ""
 		let temp = JSON.parse(localStorage.getItem("saved-movies"));
 		if (temp && temp.find(mov => mov.id === omdbData.imdbID)) {
-			removeBtn = `<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>`
+			removeBtn = `<button class="button-primary" id="remove-btn" data-imdbID="${omdbData.imdbID}", data-poster="${omdbData.Poster}", data-title="${omdbData.Title}" onclick="removeMovie()">Remove</button>
+			`
 		}
 
 		let movieDetails = `	
@@ -186,7 +187,7 @@ $(document).ready(function () {
 			.catch(function (err) {
 				console.log(err);
 			});
-		
+
 		// When the user clicks on <span> (x), close the modal
 		$('.close').click(function () {
 			modal.style.display = 'none';
