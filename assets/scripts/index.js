@@ -82,10 +82,6 @@ $(document).ready(function () {
 				$('#movie-display').append(moviesOutput);
 			}
 
-			function imageNotFound() {
-				console.log('That image was not found.');
-			}
-
 			testImage(movie.Poster);
 		});
 
@@ -186,7 +182,7 @@ $(document).ready(function () {
 			.catch(function (err) {
 				console.log(err);
 			});
-		
+
 		// When the user clicks on <span> (x), close the modal
 		$('.close').click(function () {
 			modal.style.display = 'none';
@@ -274,10 +270,6 @@ $(document).ready(function () {
 			`;
 				//Append the movie result to HTML movie-display <div>
 				$('#saved-display').append(moviesOutput);
-			}
-
-			function imageNotFound() {
-				console.log('That image was not found.');
 			}
 
 			testImage(movie.poster);
