@@ -38,7 +38,6 @@ $(document).ready(function () {
 	// OMDB INFORMATION AND CALL
 
 	function omdbAPI(movie) {
-		// console.log(movie);
 		return `https://www.omdbapi.com/?apikey=${omdbKey}&s=${movie}`;
 	}
 
@@ -54,7 +53,6 @@ $(document).ready(function () {
 	// USING USERINPUT TO GET MOVIE SEARCH RESULT FROM OMDB
 
 	function omdbMovieResult(omdbResponse) {
-		// console.log(omdbResponse);
 		$('#movie-display').empty();
 		// save response.search to a variable
 		let movies = omdbResponse.Search;
@@ -107,7 +105,6 @@ $(document).ready(function () {
 		let id = $(this).attr('data-id');
 
 		let idURL = `https://www.omdbapi.com/?i=${id}&apikey=dd9cc031`;
-		console.log(idURL);
 		$.ajax({
 			url: idURL,
 			method: 'GET'
@@ -118,11 +115,9 @@ $(document).ready(function () {
 			});
 	}
 
+	// RENDER MOVIE DETAILS TO MODAL 
 
-
-	// Render movie details to modal
 	function movieDetails(omdbData) {
-		// console.log(omdbData);
 		let movie = omdbData;
 		//HTML modal structure
 		let removeBtn = ""
@@ -142,20 +137,20 @@ $(document).ready(function () {
 		      	</div>
 		    	<div class="seven columns" id="modal-info">
 					<h3 id="modal-movie-title">${movie.Title}</h3>
-					<p id="modal-genre"><strong>Genre: </strong>${movie.Genre}</p>
-					<p id="modal-language"><strong>Language: </strong>${movie.Language}</p>
-					<p id="modal-runtime"><strong>Runtime: </strong>${movie.Runtime}</p>
-					<p id="modal-rated"><strong>Rated: </strong>${movie.Rated}</p>
-					<p id="modal-released"><strong>Released: </strong>${movie.Released}</p>
-					<p id="modal-imdb"><strong>Ratings: </strong>${movie.imdbRating}</p>
-					<p id="modal-production"><strong>Production: </strong>${movie.Production}</p>
-					<p id="modal-director"><strong>Director: </strong>${movie.Director}</p>
-					<p id="modal-starring"><strong>Actors: </strong>${movie.Actors}</p>
+					<p id="modal-genre"><strong>Genre: </strong><span class="text genre">${movie.Genre}</span></p>
+					<p id="modal-language"><strong>Language: </strong><span class="text lang">${movie.Language}</span></p>
+					<p id="modal-runtime"><strong>Runtime: </strong><span class="text runtime">${movie.Runtime}</span></p>
+					<p id="modal-rated"><strong>Rated: </strong><span class="text rated">${movie.Rated}</span></p>
+					<p id="modal-released"><strong>Released: </strong><span class="text release">${movie.Released}</span></p>
+					<p id="modal-imdb"><strong>Ratings: </strong><span class="text rating">${movie.imdbRating}</span></p>
+					<p id="modal-production"><strong>Production: </strong><span class="text production">${movie.Production}</span></p>
+					<p id="modal-director"><strong>Director: </strong><span class="text director">${movie.Director}</span></p>
+					<p id="modal-starring"><strong>Actors: </strong><span class="text actors">${movie.Actors}</span></p>
 		        </div>
 			</div>
 			<div class="row" id="plot-div">
 				<h6 id="plot">Plot Summary</h6>
-				<p>${movie.Plot}<p>
+				<p><span class="text plot">${movie.Plot}</span><p>
 			</div>
 			<div class="row" "service-row">
 				<div class="eight columns service-icon">
@@ -172,11 +167,12 @@ $(document).ready(function () {
 
 		$('#modal-container').append(movieDetails);
 
+		checkUndefined();
+
 		// utelly query call
 		let uTellyEndPoint = uTellyURL(movie.imdbID);
 		$.ajax(uTellyEndPoint, settings)
 			.then(function (response) {
-				// console.log(response);
 				if (Object.entries(response.collection).length !== 0) {
 					response.collection.locations.forEach(function (streamingLocation) {
 						let liEl = `<li><a href="${streamingLocation.url}" target="_blank"><img id="modal-logo" src="${streamingLocation.icon}"/></a></li>`;
@@ -190,11 +186,24 @@ $(document).ready(function () {
 			.catch(function (err) {
 				console.log(err);
 			});
-
+		
 		// When the user clicks on <span> (x), close the modal
 		$('.close').click(function () {
 			modal.style.display = 'none';
 		});
+	}
+
+	// CHANGE "UNDEFINED" TO "N/A" IN MOVIE-DETAIL MODAL
+
+	function checkUndefined() {
+		let fields = ["genre", "lang", "runtime", "rated", "release", "rating", "production", "director", "actors"]
+		//use for-loop to get each field text
+		for (let i = 0; i < fields.length; i++) {
+			let fieldText = $('#modal-info').find(`.${fields[i]}`).text()
+			//Change fieldText "undefined" to "N/A"
+			if (fieldText === "undefined")
+				$('#modal-info').find(`.${fields[i]}`).text("N/A")
+		}
 	}
 
 	// STORE SAVED MOVIES TO LOCALSTORAGE WHEN USERS CLICK SAVE-BTN
@@ -280,9 +289,7 @@ $(document).ready(function () {
 	$('#saved-display').on('click', 'img', savedToModal);
 
 	function removeMovie() {
-		console.log("Clickety Clackety")
 		//Remove the image from DOM
-		// $(this).detach();
 		$(this).remove();
 
 		//assign data in localstorage to a varialbe
@@ -305,21 +312,18 @@ $(document).ready(function () {
 
 	// Append saved movies to modal when clicked
 	function savedToModal() {
+		// Change remove button style to shown 
 		$("#remove-btn").css("display", "block")
-		console.log($("#remove-btn").attr("id"))
+		//Show modal
 		modal.style.display = 'block';
-		console.log("Image Click To Open Modal")
-
+		//Clear modal 
 		$('#modal-container').empty();
-
+		//Save movie ID in variable id
 		let id = $(this).attr('data-id');
-		console.log($("#remove-btn"))
-
+		//Add click event handler on the remove button
 		$('#saved-display').on('click', '#remove-btn', removeMovie);
 
-		
 		// Get the data-id info for each button clicked
-
 		let idURL = `https://www.omdbapi.com/?i=${id}&apikey=dd9cc031`;
 
 		$.ajax({
@@ -336,7 +340,7 @@ $(document).ready(function () {
 	/* EVENT HANDLERS 
 	======================================================================================================== */
 
-	// On click listener for the button to collect the data from omdb and console.log
+	// On click listener for the button to collect the data from omdb
 	$('#searchBtn').click(function () {
 		// Prevent form submisson and page reload
 		event.preventDefault();
@@ -345,7 +349,6 @@ $(document).ready(function () {
 		let movie = userInput.val().trim();
 
 		//First check if there is movie input
-
 		if (movie) {
 			//omdb query call func
 			omdbQuery();
