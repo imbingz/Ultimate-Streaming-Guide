@@ -74,7 +74,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name="Credits"></a>
 ### 7. Credits:
-This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Chris Saner. The following resources  also contribute to this project. The last but not least, our awesome team members and synergy among us. Things get done magically when everyone is happy and wants to do more. 
+This project will not be completed as is without the help, advice and guidance from our Instructor Alex and TAs katie @fkakatie, Mason @LtWilhelm, and Christoper Sanner. The following resources  also contribute to this project. The last but not least, our awesome team members and synergy among us surely helped get this project done magically. 
 
 * [Omdb API](http://www.omdbapi.com/)
 * [Utelly API](https://rapidapi.com/utelly/api/utelly)
@@ -97,8 +97,9 @@ This project will not be completed as is without the help, advice and guidance f
 [Bing Zhang]@imbingz
 * Adding event handler to dynamically generated elements is one of the most challenging tasks through this project. Since we appended block of HTML elements together instead of generating each of them one at time, many times the event handler added to the button return as unfound elements. Using event delegation solved most of this kind of issue. As for the remove-movie button, we tried all possible solutions we could think of and still could not add the event handler to the button, so, we added “onclick” attribute to the element when we generated it and had to move the click function script to HTML. It does not look pretty, but it worked. 
 * Saving the right data to localStorage each time when a user click the save-movie button was also more complicated than I originally anticipated, because each image has its id, src and alt with movie title. The best way i found is to add those attributes to the button, and create an array of objects with properties id, src and title. So, each time, the user click save-movie button, the button will collect the right info to store. 
-* Using branches and collaborating with others on github was quite challenging for me. I certainly did not push as often as I usually do in the solo projects. However, I also learnt how important is good communication among team. A clear delegation of task certainly helped reduce the number of merge conflicts. 
-* What I enjoyed most during this project is working with my team mates @@LayneHansen and @MrCartree. I love the synergy among us and everything seems to be a breeze even when we did have an immediate solution but we just knew we would get the tasks done. Happiness solves all problems. 
+* Using branches and collaborating with others on github was quite challenging for me. I certainly did not push as often as I usually do in the solo projects. However, I also learnt how important is good communication among team. A clear delegation of task certainly helped reduce the number of merge conflicts.
+* Additionally, what I learned most is the power of team and having a well-thought plan. I truly enjoyed working with my team mates Layne Hansen @LayneHansen and Zacharie LaFleur @MrCartre. Everything flowed seamlessly during the entire project. It is such comfort to know I have a team that I can rely on and get help from when needed. We set project schedule and plans from the very beginning and were ahead of our schedule every step on the way. I am extremely grateful for having this opportunity to work with them. 
+
 
 
 <a name="wireframe"></a>
