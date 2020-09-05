@@ -81,9 +81,9 @@ SO THAT I can save time and quickly find what I want.<br>
 * [Mozilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)<br>
 * [JQuey API](https://api.jquery.com/)<br>
 * [Visual Studio Code](https://code.visualstudio.com/)<br>
-*[Favicon Used](https://freepngimg.com/png/18709-television-free-download-png/icon)<br>
-*[Color Palette](https://colorhunt.co/)<br>
-* [Detect When an Image Fails to Load](// https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript)
+* [Favicon Used](https://freepngimg.com/png/18709-television-free-download-png/icon)<br>
+* [Color Palette](https://colorhunt.co/)<br>
+* [Detect When an Image Fails to Load](https://stackoverflow.com/questions/9815762/detect-when-an-image-fails-to-load-in-javascript)
 * 
 
 
