@@ -91,16 +91,17 @@ This project will not be completed as is without the help, advice and guidance f
 
 <a name="learned"></a>
 ### 8. Challenges & What We've Learned
-[Layne Hansen]@LayneHansen
+
+[Layne Hansen](https://github.com/laynehansen)
 * Often the biggest struggle is making adjustments to changes on the page. When a new element is added, other elements need to be changed to accommodate the change. Most specifically, getting the button the removes movies from the search scroll was very difficult.
 
-[Bing Zhang]@imbingz
+[Bing Zhang](https://github.com/imbingz)
 * Adding event handler to dynamically generated elements is one of the most challenging tasks through this project. Since we appended block of HTML elements together instead of generating each of them one at time, many times the event handler added to the button return as unfound elements. Using event delegation solved most of this kind of issue. As for the remove-movie button, we tried all possible solutions we could think of and still could not add the event handler to the button, so, we added “onclick” attribute to the element when we generated it and had to move the click function script to HTML. It does not look pretty, but it worked. 
 * Saving the right data to localStorage each time when a user click the save-movie button was also more complicated than I originally anticipated, because each image has its id, src and alt with movie title. The best way i found is to add those attributes to the button, and create an array of objects with properties id, src and title. So, each time, the user click save-movie button, the button will collect the right info to store. 
 * Using branches and collaborating with others on github was quite challenging for me. I certainly did not push as often as I usually do in the solo projects. However, I also learnt how important is good communication among team. A clear delegation of task certainly helped reduce the number of merge conflicts.
 * Additionally, what I learned most is the power of team and having a well-thought plan. I truly enjoyed working with my team mates Layne Hansen @LayneHansen and Zacharie LaFleur @MrCartre. Everything flowed seamlessly during the entire project. It is such comfort to know I have a team that I can rely on and get help from when needed. We set project schedule and plans from the very beginning and were ahead of our schedule every step on the way. I am extremely grateful for having this opportunity to work with them. 
 
-[Zach LaFleur]@MrCartree
+[Zach LaFleur](https://github.com/MrCartree)
 * Learning how there are different types of ajax calls that can be used. Such as the difference between our IMDB ajax call and our UTelly ajax call. The UTelly used a few different arguments, one with the URL and then a variable with an object that holds all the other information needed to complete the call and to get the information. That was a really interesting thing that I was able to learn from this project.
 * Learning how to examine another persons code and to learn what is needed from that to make changes or repairs and debug a few things. Everybody writes code differently just like how everbody writes or speaks differently. Learning the different ways to follow the paths and to examine what other people have written and why was a really interesting and fun thing.
 * Learning about Template Literals or Template Strings was a really cool thing. By using back ticks and the fancy Template Literal "${}" that was a really cool way to add new things to the code, from generating HTML code and creating those elements from the JS file to using it to grab variables or different needed data at different points in the code. I found it to be really cool and interesting.
