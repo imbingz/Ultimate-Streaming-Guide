@@ -35,7 +35,7 @@ SO THAT I can save time and quickly find what I want.<br>
 
 <a name = "objectives"></a>
 ### 3. Project Objectives
-* Use [omdb API](http://www.omdbapi.com/) and [Utelly API](https://rapidapi.com/utelly/api/utelly) to create an application where the user can search for specific movies and tv shows and see where they are streamable from as well as brows movies by genre and receive basic information about that movie or show (Plot, Rating, Actors, etc)
+* Use [omdb API](http://www.omdbapi.com/) and [Utelly API](https://rapidapi.com/utelly/api/utelly) to create an application where the user can search for specific movies and tv shows, see where they are streamable from, and browse movies by genre and receive basic information about that movie or show (Plot, Rating, Actors, etc)
 
 * It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
 
